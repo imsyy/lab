@@ -1,0 +1,90 @@
+﻿<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+  <title>2048</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta property="og:title" content="2048 游戏">
+  <meta property="og:site_name" content="2048 游戏">
+  <meta property="og:description" content="一起来玩吧!">
+  <meta property="og:image" content="meta/og_image.png">
+
+  <script type="text/javascript" charset="utf-8"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="heading">
+      <h1 class="title">2048</h1>
+      <div class="scores-container">
+        <div class="score-container">0
+          <div class="score-addition"></div>
+        </div>
+        <div class="best-container">0</div>
+      </div>
+    </div>
+    <div class="heading">
+      <!--<p style="float:left;" class="game-intro">移动数字使相同的合并，得到<strong>2048获胜!</strong></p>-->
+      <div id="clear-tile2">清除一次</div>
+      <div id="clear-score" class="clear">清除记录</div>
+    </div>
+    <div id="game-container" class="game-container">
+      <div class="game-message">
+        <p></p>
+        <div class="lower">
+          <a id="retry-button">再来一次</a>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+      </div>
+
+      <div class="tile-container"></div>
+    </div>
+
+  </div>
+
+  <script src="./js/animframe_polyfill.js"></script>
+  <script src="./js/keyboard_input_manager.js"></script>
+  <script src="./js/html_actuator.js"></script>
+  <script src="./js/grid.js"></script>
+  <script src="./js/tile.js"></script>
+  <script src="./js/local_score_manager.js"></script>
+  <script src="./js/game_manager.js"></script>
+  <script src="./js/application.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 后台管理</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <!--引入Bootstrap-->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background-image: url(./img/background.jpg);
+        }
+
+        .register {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .left {
+            height: 100%;
+            width: 50%;
+            background: rgb(255 255 255 / 95%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 40px;
+        }
+
+        .right {
+            height: 100%;
+            width: 50%;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        p.one {
+            font-size: 1.5rem;
+        }
+
+        p.two {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .mb-3.form-check {
+            margin-top: 1rem;
+        }
+
+        .button {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .btn.btn-secondary {
+            height: 38px;
+        }
+
+        button {
+            margin: 4px;
+        }
+
+        .footer-text {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            background: rgb(255 255 255 / 80%);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <div class="left">
+            <p class="one">欢迎使用</p>
+            <p class="two">后台管理系统</p>
+        </div>
+        <div class="right">
+            <form action="./page/index.html" method="dialog">
+                <div class="mb-3">
+                    <label for="name" class="form-label">账号</label>
+                    <input type="Text" class="form-control" name="name" id="name" aria-describedby="TextHelp">
+                </div>
+                <label for="pw" class="form-label">密码</label>
+                <input type="password" name="pw" id="pw" class="form-control" aria-describedby="passwordHelpBlock">
+                <div id="passwordHelpBlock" class="form-text">请输入8-16位字母+数字组合</div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">记住密码</label>
+                </div>
+                <div id="passwordHelpBlock" class="form-text">账号:123 | 密码:123</div>
+                <div class="button">
+                    <a class="btn btn-secondary" href="./signup.html" role="button">注册</a>
+                    <button type="submit" class="btn btn-primary" onclick="return checkpost()">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="fixed-bottom">
+        <div class="footer-text">Copyright © 计算机19A2 孙永祎. All rights reserved.</div>
+    </footer>
+    <!--引入Bootstrap-->
+    <script src="./js/bootstrap.min.js"></script>
+    <script>
+        function checkpost() {
+            if (document.forms[0].name.value == "123" && document.forms[0].pw.value == "123") {
+                window.location.href = './page/index.html';
+            } else {
+                alert("用户名或密码不正确！");
+                window.location.href = 'index.html';
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 加载动画</title>
+
+    <!-- Search Engine -->
+    <meta name="title" content="CSS3 加载动画">
+    <meta name="description" content="在浏览网站时，我们都可能面临一个情况，那就是等待一些进度或东西被加载。在这种情况下，一个最常见的解决方案是使用一个加载动画来指示用户，本站是一个集合了这种加载加载动画的库。这里面没有图像的依赖性。它是用纯CSS完成的。因此，它也很容易定制。">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="CSS3 加载动画">
+    <meta itemprop="description" content="在浏览网站时，我们都可能面临一个情况，那就是等待一些进度或东西被加载。在这种情况下，一个最常见的解决方案是使用一个加载动画来指示用户，本站是一个集合了这种加载加载动画的库。这里面没有图像的依赖性。它是用纯CSS完成的。因此，它也很容易定制。">
+    <meta name="image" content="https://css3loaders.github.io/images/Loader-screen.png">
+    
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="CSS3 加载动画">
+    <meta name="og:description" content="在浏览网站时，我们都可能面临一个情况，那就是等待一些进度或东西被加载。在这种情况下，一个最常见的解决方案是使用一个加载动画来指示用户，本站是一个集合了这种加载加载动画的库。这里面没有图像的依赖性。它是用纯CSS完成的。因此，它也很容易定制。">
+    <meta name="og:image" content="https://css3loaders.github.io/images/Loader-screen.png">
+    <meta name="og:url" content="https://imsyy.top/">
+    <meta name="og:site_name" content="CSS3 加载动画">
+    <meta name="fb:admins" content="https://imsyy.top/">
+    <meta name="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CSS3 加载动画">
+    <meta name="twitter:description" content="在浏览网站时，我们都可能面临一个情况，那就是等待一些进度或东西被加载。在这种情况下，一个最常见的解决方案是使用一个加载动画来指示用户，本站是一个集合了这种加载加载动画的库。这里面没有图像的依赖性。它是用纯CSS完成的。因此，它也很容易定制。">
+    <meta property="twitter:url" content="https://css3loaders.github.io/">
+    <meta name="twitter:creator" content="@vineethtrv">
+    <meta name="twitter:image:src" content="https://css3loaders.github.io/images/Loader-screen.png">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <span class="brand"> L &nbsp; ader </span>
+        <nav>
+            <a class="nav-btn git" target="_blank" href="https://github.com/vineethtrv/css-loader"></a>
+        </nav>
+    </header>
+
+    <main id="main">
+        <div class="section" id="demo">
+            <span class="loader"></span>
+        </div>
+    </main>
+
+
+    <footer>
+        <a href="https://lab.imsyy.top/" target="_blank" >
+            Copyright © 2020 <script>
+                document.write(' - ' + (new Date()).getFullYear())
+            </script> 無名の网页实验室
+        </a>
+    </footer>
+
+
+    <div class="overlay">
+        <div class="popup">
+            <button class="btn-close">&times;</button>
+            <div class="showcase"></div>
+            <div class="code-content">
+                <div class="code-area">
+                    <div class="code-header">
+                        HTML
+                        <button class="copy" data-id="markup">Copy</button>
+                    </div>
+                    <code id="markup"></code>
+                </div>
+                <div class="code-area">
+                    <div class="code-header">
+                        CSS
+                        <button class="copy" data-id="css">Copy</button>
+                    </div>
+                    <code id='css'></code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script async src="./js/d.js"></script>
+    <script  type="module" src="./js/app.js"></script>
+</body>
+</html>

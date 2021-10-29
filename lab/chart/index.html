@@ -1,0 +1,561 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="no">
+    <meta name="description" content="ECharts, a powerful, interactive charting and visualization library for browser">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png?_v_=20200710_1">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link href="./css/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pace-progressbar@1.0.2/pace.min.js"></script>
+    <title>ECharts 图表</title>
+    <style>a:link {text-decoration: none;}a:visited {text-decoration: none;}a:active {text-decoration: none;}a:hover {text-decoration: none;}</style>
+</head>
+<body>
+    <div id="main">
+        <div id="page-index" class="page-main">
+            <div id="main-content">
+                <section id="home-section">
+                    <div class="home-brand-panel description container">
+                        <div class="home-info">
+                            <div class="home-brand">Apache ECharts</div>
+                            <div class="home-subtitle">一个基于 JavaScript 的开源可视化图表库</div>
+                            <div class="home-btn-panel">
+                                <a href="https://echarts.apache.org/tutorial.html#5%20分钟上手%20ECharts" target="_blank" class="btn btn-main btn-index-home">
+                                    <svg width="22px" height="19px" viewBox="0 0 17 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="index-home-svg">
+                                        <path fill="#fff" d="M10.9,16.2 C10.9,16.8 10.5,17.2 9.9,17.2 L5.3,17.2 C4.7,17.2 4.3,16.8 4.3,16.2 C4.3,15.6 4.7,15.2 5.3,15.2 L9.9,15.2 C10.5,15.2 10.9,15.7 10.9,16.2 Z M13.6,7.5 L5.3,7.5 C4.7,7.5 4.3,7.9 4.3,8.5 C4.3,9.1 4.7,9.5 5.3,9.5 L13.6,9.5 C14.2,9.5 14.6,9.1 14.6,8.5 C14.6,7.9 14.2,7.5 13.6,7.5 Z M17.9,6 L17.9,19 C17.9,20.7 16.6,22 14.9,22 L3.9,22 C2.2,22 0.9,20.7 0.9,19 L0.9,7.5 L0.9,6 L0.9,5 L0.9,4 L0.9,2 C0.9,0.9 1.8,0 2.9,0 L12.9,0 C14,0 14.9,0.9 14.9,2 L14.9,3 C16.6,3 17.9,4.3 17.9,6 Z M2.9,3 L3.9,3 L12.9,3 L12.9,2 L2.9,2 L2.9,3 Z M15.9,6 C15.9,5.4 15.5,5 14.9,5 L3.9,5 C3.3,5 2.9,5.4 2.9,6 L2.9,19 C2.9,19.6 3.3,20 3.9,20 L14.9,20 C15.5,20 15.9,19.6 15.9,19 L15.9,6 Z M13.6,11.5 L5.3,11.5 C4.7,11.5 4.3,11.9 4.3,12.5 C4.3,13.1 4.7,13.5 5.3,13.5 L13.6,13.5 C14.2,13.5 14.6,13.1 14.6,12.5 C14.6,11.9 14.2,11.5 13.6,11.5 Z"></path>
+                                    </svg>
+                                    <span>查看文档</span>
+                                </a>
+                                <a  href="#show" class="btn btn-main btn-index-home">
+                                    <svg width="25px" height="19px" viewBox="0 0 17 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="index-home-svg">
+                                        <path fill="#F72C5B" d="M21,0 L6,0 C4.9,0 4,0.9 4,2 L4,4 L2,4 C0.9,4 0,4.9 0,6 L0,18 C0,19.1 0.9,20 2,20 L17,20 C18.1,20 19,19.1 19,18 L19,16 L21,16 C22.1,16 23,15.1 23,14 L23,2 C23,0.9 22.1,0 21,0 Z M17,18 L2,18 L2,6 L17,6 L17,18 Z M21,14 L19,14 L19,6 C19,4.9 18.1,4 17,4 L6,4 L6,2 L21,2 L21,14 Z M4,15 L4,12 C4,11.4 4.4,11 5,11 C5.6,11 6,11.4 6,12 L6,15 C6,15.6 5.6,16 5,16 C4.4,16 4,15.6 4,15 Z M13,15 L13,12 C13,11.4 13.4,11 14,11 C14.6,11 15,11.4 15,12 L15,15 C15,15.6 14.6,16 14,16 C13.4,16 13,15.6 13,15 Z M7,15 L7,9 C7,8.4 7.4,8 8,8 C8.6,8 9,8.4 9,9 L9,15 C9,15.6 8.6,16 8,16 C7.4,16 7,15.6 7,15 Z M10,15 L10,11 C10,10.4 10.4,10 11,10 C11.6,10 12,10.4 12,11 L12,15 C12,15.6 11.6,16 11,16 C10.4,16 10,15.6 10,15 Z"></path>
+                                    </svg>
+                                    <span>查看示例</span>
+                                </a>
+                                <a href="https://github.com/apache/echarts" target="_blank" class="btn btn-main btn-index-home btn-index-github">
+                                    <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-262.000000, -2480.000000)" fill="#081642">
+                                                <g transform="translate(252.000000, 2470.000000)">
+                                                    <path d="M29.9006449,27.904446 C28.5016932,29.8668872 26.6944882,31.2248797 24.4790301,31.9784237 C24.2211218,32.0272886 24.0325745,31.9931534 23.9133882,31.876018 C23.7942019,31.7588827 23.7346171,31.6119968 23.7346338,31.4353603 L23.7346338,28.3376019 C23.7346338,27.3880159 23.4865017,26.6930482 22.9902375,26.2526987 C23.5347812,26.1938141 24.024319,26.1058042 24.458851,25.9886688 C24.893383,25.8715335 25.3422785,25.680801 25.8055376,25.4164714 C26.2687966,25.1521418 26.6556591,24.8267354 26.9661251,24.4402521 C27.276591,24.0537688 27.5296112,23.5398222 27.7251857,22.8984123 C27.9207602,22.2570024 28.0185475,21.5203805 28.0185475,20.6885464 C28.0185475,19.504056 27.6414612,18.4959023 26.8872886,17.6640854 C27.240536,16.7733669 27.2023419,15.7752328 26.7727063,14.6696833 C26.5050218,14.5813565 26.1181593,14.6352226 25.6121189,14.8312818 C25.1060784,15.0273409 24.6669591,15.2428141 24.2947609,15.4777015 L23.7502256,15.8300324 C22.8622108,15.5757225 21.9454689,15.4485675 21,15.4485675 C20.0545311,15.4485675 19.1377892,15.5757225 18.2497744,15.8300324 C18.0969813,15.7223001 17.8940788,15.5901353 17.641067,15.433538 C17.3880551,15.2769408 16.9892689,15.0884007 16.4447085,14.8679176 C15.9001481,14.6474346 15.4894467,14.5813479 15.2126043,14.6696576 C14.7921266,15.7758408 14.7588206,16.7739749 15.1126863,17.6640597 C14.3585137,18.4958938 13.9814275,19.5040475 13.9814275,20.6885208 C13.9814275,21.5203548 14.0792147,22.2544676 14.2747892,22.8908591 C14.4703637,23.5272505 14.720944,24.0411971 15.0265302,24.4326988 C15.3321164,24.8242005 15.7165391,25.1521076 16.1797981,25.41642 C16.6430571,25.6807325 17.0919527,25.871465 17.5264847,25.9886174 C17.9610167,26.1057699 18.4505545,26.1937799 18.9950982,26.2526473 C18.6131238,26.60467 18.3790461,27.1085884 18.292865,27.7644025 C18.0924107,27.8621152 17.8775846,27.935404 17.6483866,27.984269 C17.4191886,28.0331339 17.1469167,28.0575663 16.831571,28.0575663 C16.5162253,28.0575663 16.203612,27.9523346 15.8937309,27.7418712 C15.5838499,27.5314078 15.3189144,27.225424 15.0989244,26.8239198 C14.9174043,26.5107253 14.6857747,26.2564154 14.4040358,26.0609899 C14.1222969,25.8655645 13.8860801,25.7481209 13.6953854,25.708659 L13.4084408,25.6644956 C13.2079866,25.6644956 13.069557,25.6864188 12.9931521,25.7302654 C12.9167472,25.7741119 12.8929083,25.8304873 12.9216353,25.8993914 C12.9503623,25.9682956 12.9934529,26.0368829 13.050907,26.1051533 C13.1083611,26.1734238 13.1703941,26.2319915 13.2370061,26.2808564 L13.336924,26.3541538 C13.5471712,26.4518665 13.7549701,26.6378974 13.9603209,26.9122466 C14.1656716,27.1865958 14.3160164,27.4362043 14.4113555,27.661072 L14.554364,27.9983735 C14.67843,28.3704354 14.8886689,28.6714094 15.1850804,28.9012955 C15.481492,29.1311815 15.8014334,29.2780674 16.1449045,29.3419532 C16.4883756,29.405839 16.8202406,29.4399742 17.1404995,29.4443589 C17.4607584,29.4487435 17.7256939,29.4315218 17.935306,29.3926936 L18.2644137,29.3335008 C18.2644137,29.7055627 18.2668619,30.1412107 18.2717584,30.6404447 C18.2766548,31.1396787 18.279103,31.4040083 18.279103,31.4334334 C18.279103,31.6094533 18.21707,31.7563392 18.093004,31.8740912 C17.9689379,31.9918431 17.7779507,32.0259784 17.5200424,31.9764969 C15.3045843,31.22297 13.4973793,29.8649774 12.0984276,27.9025191 C10.6994759,25.9400608 10,23.7305118 10,21.2738721 C10,19.2281225 10.4916769,17.3417791 11.4750308,15.6148418 C12.4583846,13.8879045 13.7928551,12.5202092 15.4784422,11.5117558 C17.1640293,10.5033024 19.0045486,9.99938397 21,10.0000006 C22.9954514,10.0006172 24.8359707,10.5045356 26.5215578,11.5117558 C28.2071449,12.518976 29.5416154,13.8866713 30.5249692,15.6148418 C31.5083231,17.3430123 32,19.2293557 32,21.2738721 C31.9990725,23.7324558 31.2995966,25.9420048 29.9006449,27.904446 Z"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="home-chart">
+                            <img src="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/index-home-pie.png?_v_=20200710_1">
+                        </div>
+                    </div>
+                </section>
+                <section id="about-section" class="normal reveal-about">
+                    <div class="container">
+                        <h3><a name="show"><font color="#081642">图表示例</font></a></h3>
+                        <hr>
+                        <p><h4><strong>折线图 line</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/基础折线图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础折线图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/基础平滑折线图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础平滑折线图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/基础面积图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础面积图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/折线图堆叠.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>折线图堆叠</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/堆叠面积图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>堆叠面积图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/渐变堆叠面积图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>渐变堆叠面积图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/雨量流量关系图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>雨量流量关系图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/渐变堆叠面积图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>渐变堆叠面积图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/折线图区域高亮.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>折线图区域高亮</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/函数绘图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>函数绘图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/阶梯折线图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>阶梯折线图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/line/可拖拽点.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>可拖拽点</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>柱状图 Bar</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/基础柱状图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础柱状图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/堆叠柱状图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>堆叠柱状图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/动态数据.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>动态数据</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/动态排序柱状图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>动态排序柱状图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/折柱混合.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>折柱混合</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/柱状图动画延迟.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>柱状图动画延迟</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/瀑布图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>瀑布图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/bar/缩放渐变柱形图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>缩放渐变柱形图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>饼图 Pie</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/pie/环形图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>环形图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/pie/圆角环形图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>圆角环形图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/pie/南丁格尔玫瑰图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>南丁格尔玫瑰图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/pie/联动和共享数据集.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>联动和共享数据集</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>散点图 Scatter</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/scatter/基础散点图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础散点图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/scatter/单轴散点图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>单轴散点图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>K 线图 Candlestick</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/candlestick/基础 K 线图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础 K 线图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/candlestick/上证指数.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>上证指数</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>雷达图 Radar</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/radar/基础雷达图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础雷达图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/radar/多雷达图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>多雷达图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/radar/自定义雷达图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>自定义雷达图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/radar/浏览器占比变化.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>浏览器占比变化</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>盒须图 Boxplot</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/boxplot/基础盒须图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础盒须图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/boxplot/垂直方向盒须图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>垂直方向盒须图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>漏斗图 Funnel</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/funnel/漏斗图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>漏斗图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/funnel/漏斗图对比.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>漏斗图对比</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/funnel/漏斗图横向对比.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>漏斗图横向对比</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/funnel/立体漏斗图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>立体漏斗图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>仪表盘 Gauge</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/gauge/基础仪表盘.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>基础仪表盘</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/gauge/动态仪表盘.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>动态仪表盘</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/gauge/多标题仪表盘.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>多标题仪表盘</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/gauge/时钟仪表盘.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>时钟仪表盘</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="container">
+                        <p><h4><strong>富文本 Rich</strong></h4></p>
+                        <div class="btn-panel row">
+                            <div class="col-lg-3 col-sm-6">
+                                <a id="btn-github" href="/lab/chart/rich/嵌套环形图.html" target="_blank">
+                                    <div class="btn-content">
+                                        <div class="btn-logo">
+                                            <span>嵌套环形图</span>
+                                        </div>
+                                        <div class="icon-v-right"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

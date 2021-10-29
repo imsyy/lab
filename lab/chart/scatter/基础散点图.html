@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png?_v_=20200710_1">
+        <title>基础散点图</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+        <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            var option = {
+                xAxis: {},
+                yAxis: {},
+                series: [{
+                    symbolSize: 20,
+                    data: [
+                        [10.0, 8.04],
+                        [8.07, 6.95],
+                        [13.0, 7.58],
+                        [9.05, 8.81],
+                        [11.0, 8.33],
+                        [14.0, 7.66],
+                        [13.4, 6.81],
+                        [10.0, 6.33],
+                        [14.0, 8.96],
+                        [12.5, 6.82],
+                        [9.15, 7.20],
+                        [11.5, 7.20],
+                        [3.03, 4.23],
+                        [12.2, 7.83],
+                        [2.02, 4.47],
+                        [1.05, 3.33],
+                        [4.05, 4.96],
+                        [6.03, 7.24],
+                        [12.0, 6.26],
+                        [12.0, 8.84],
+                        [7.08, 5.82],
+                        [5.02, 5.68]
+                    ],
+                    type: 'scatter'
+                }]
+            };
+            // 图表结束
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+            function fn() {
+                var height = document.getElementById("container").offsetHeight
+                var width = document.getElementById("container").offsetWidth
+            };
+            fn();
+            window.onresize = function () {
+                fn();
+                myChart.resize();
+            }
+        </script>
+    </body>
+</html>
+    

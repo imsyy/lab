@@ -1,0 +1,426 @@
+:root {
+    --launch-color: #409eff;
+    --launch-hov-color: #66b1ff;
+    --launch-act-color: #3a8ee6;
+}
+
+html,
+body {
+    overflow: hidden;
+    background-color: #fff;
+}
+
+* ::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.left {
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+    border-right: 1px solid #eee;
+    position: relative;
+}
+
+.left #code {
+    height: 100%;
+}
+
+.left .button {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    font-size: 0;
+    right: 0;
+    top: 0;
+    padding: 5px;
+}
+
+.left .button i {
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.left .button .group {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.left .button .group .item {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px;
+    color: #8f8f8f;
+    border: 1px solid #eee;
+    cursor: pointer;
+    position: relative;
+    transition: 0.1s;
+    transition-property: color, border-color, background-color;
+}
+
+.left .button .group .item:hover {
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+}
+
+.left .button .group .item:active {
+    color: #3a8ee6;
+    border-color: #3a8ee6;
+}
+
+.left .button .group .item:not(:first-child) {
+    margin-left: -1px;
+}
+
+.left .button .group .item:first-child {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    padding-left: 13px;
+}
+
+.left .button .group .item:last-child {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    padding-right: 13px;
+}
+
+.left .button #launch {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: var(--launch-color);
+    cursor: pointer;
+    transition: 0.1s;
+    transition-property: color, border-color, background-color;
+}
+
+.left .button #launch:hover {
+    background-color: var(--launch-hov-color);
+}
+
+.left .button #launch:active {
+    background-color: var(--launch-act-color);
+}
+
+.left #status {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    right: 0;
+    bottom: 0;
+    user-select: none;
+    color: #909399;
+    font-family: monospace;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    transition: 0.1s;
+    transition-property: color, background-color;
+}
+
+.left #status:hover {
+    color: #737477;
+    background-color: rgba(238, 238, 238, 0.5);
+}
+
+.right {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+}
+
+.right #frame {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 200px);
+}
+
+.right .console {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-top: 1px solid #eee;
+    font-family: monospace;
+}
+
+.right .console .title {
+    font-size: 1.1rem;
+    color: #909399;
+    height: 30px;
+    padding: 5px;
+}
+
+.right .console #command {
+    width: 100%;
+    height: calc(100% - 35px);
+    overflow: scroll;
+}
+
+#command .item {
+    white-space: pre;
+    height: auto;
+    line-height: 20px;
+    font-size: 13px;
+    cursor: default;
+}
+
+#command .item:not(.command):hover {
+    background-color: #f0f0f0;
+}
+
+#command .text {
+    display: inline-block;
+    white-space: pre;
+    height: auto;
+    line-height: 20px;
+    font-size: 13px;
+    font-family: Menlo, Consolas, monospace;
+    word-wrap: break-word;
+    white-space: normal;
+    width: calc(100% - 30px);
+}
+
+#command .icon {
+    user-select: none;
+    display: inline-block;
+    line-height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: auto;
+    vertical-align: top;
+    font-family: element-icons !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#command .warn {
+    color: rgb(92, 60, 0);
+}
+
+#command .error {
+    color: rgb(235, 57, 65);
+}
+
+#command .info {
+    color: rgb(104, 104, 104);
+}
+
+#command .default {
+    color: rgb(87, 87, 87);
+}
+
+#command .command {
+    color: rgb(102, 177, 255);
+}
+
+#command .commanded {
+    color: rgb(87, 87, 87);
+}
+
+#command .return {
+    color: rgb(153, 152, 152);
+}
+
+#command #commandLine {
+    outline: none;
+    border: none;
+    height: 20px;
+    resize: none;
+}
+
+#dialogBG {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1000;
+    background-color: rgb(255, 255, 255, .5);
+    opacity: 0;
+}
+
+#dialog {
+    z-index: -10000;
+    position: fixed;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 5px 18px rgb(0, 0, 0, 0.3);
+    color: #999;
+    padding: 20px 20px 40px 20px;
+    opacity: 0;
+    max-height: 95%;
+}
+
+#dialog #closer {
+    user-select: none;
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.8rem;
+    padding: 5px;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+#dialog #closer:hover {
+    color: #000;
+}
+
+#dialog .title {
+    user-select: none;
+    font-size: 1.4rem;
+    display: inline-block;
+    color: #666;
+}
+
+#dialog .content {
+    padding: 0 20px;
+    width: 100%;
+    display: inline-block;
+    margin-top: 30px;
+    overflow: scroll;
+    height: calc(100% - 60px);
+}
+
+#dialog .content a {
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+#dialog .content a:hover {
+    color: #409eff;
+}
+
+#dialog .chooseBtn {
+    display: none;
+}
+
+#dialog .choose-label {
+    width: 40px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+    background: #dcdfe6;
+    outline: 0;
+    cursor: pointer;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: background-color 0.2s;
+}
+
+#dialog .choose-label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 20;
+    transition: left 0.2s;
+}
+
+#dialog .chooseBtn:checked + label.choose-label:before {
+    left: 20px;
+}
+
+#dialog .chooseBtn:checked + label.choose-label {
+    background-color: #409eff;
+}
+
+#dialog input {
+    color: #666;
+    font-size: 1rem;
+    font-family: unset;
+    height: 30px;
+    padding: 5px 0 5px 5px;
+    outline: 0;
+    border: 1px solid #dcdfe6;
+}
+
+#dialog .item {
+    padding: 10px 0;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    user-select: none;
+}
+
+#dialog .item .description {
+    display: inline-block;
+    width: 20%;
+    line-height: 20px;
+    height: 20px;
+}
+
+#dialog p {
+    font-size: 13px;
+    opacity: 0.8;
+    margin: 5px 0;
+    text-align: right;
+}
+
+@media all and (max-width: 300px) {
+    .left .button {
+        display: none;
+    }
+}
+
+@media all and (max-height: 350px) {
+    .right .console {
+        display: none;
+    }
+
+    .right #frame {
+        height: 100%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .left {
+        width: 100%;
+        height: 40%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .left #status {
+        display: none;
+    }
+
+    .right {
+        top: 40%;
+        width: 100%;
+        height: 60%;
+    }
+
+    .right #frame {
+        height: 100%;
+    }
+
+    .right .console {
+        display: none;
+    }
+
+    #dialog {
+        width: 95%;
+        height: 300px;
+    }
+}

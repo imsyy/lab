@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1200px"
+	 height="240px" viewBox="0 0 1200 240" enable-background="new 0 0 1200 240" xml:space="preserve">
+<g id="colors">
+</g>
+<g id="donuts" display="none">
+</g>
+<g id="hidden">
+</g>
+<g id="cuts">
+</g>
+<g id="guides" display="none">
+</g>
+<g id="harmonies">
+	<path fill="#FF5733" d="M150.004,160H6c-3.313,0-6-2.687-6-6V86c0-3.313,2.687-6,6-6h144.004"/>
+	<path fill="#200B06" d="M1050.001,80H1194c3.313,0,6,2.687,6,6v68c0,3.313-2.687,6-6,6h-143.999"/>
+	<line fill="#FF5733" x1="150.004" y1="80" x2="1050.001" y2="80"/>
+	<rect x="150" y="80" fill="#DF4C2D" width="150" height="80"/>
+	<rect x="300" y="80" fill="#BF4126" width="150" height="80"/>
+	<rect x="450" y="80" fill="#9F3620" width="150" height="80"/>
+	<rect x="600" y="80" fill="#802B1A" width="150" height="80"/>
+	<rect x="750" y="80" fill="#602113" width="150" height="80"/>
+	<rect x="900" y="80" fill="#40160D" width="150" height="80"/>
+</g>
+<g id="Layer_1">
+</g>
+</svg>

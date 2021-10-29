@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<head><title>免责声明 - 狗屁不通文章生成器</title>
+<link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon" />
+</head>
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/pandao/editor.md@1.5.0/css/editormd.min.css">
+<style type="text/css">
+    /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+    ::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+        background-color: #F5F5F5;
+    }
+
+    /*定义滑块 内阴影+圆角*/
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+        background-color: #454545;
+    }
+	body{
+		font-family:"Helvetica Neue","Helvetica","Microsoft Yahei","微软雅黑","Lantinghei SC","STXihei","WenQuanYi Micro Hei",Arial,sans-serif;
+		text-align:justify;margin:auto;font-size:14px;line-height:1.6em;
+		color:#333;background:#fefefe;padding:15px;margin:30px auto;position: relative;
+		-webkit-font-smoothing: antialiased;font-smoothing: antialiased;
+	}
+
+	article,footer,header,nav{margin:0 auto}
+	article{margin-top:4em;margin-bottom:4em;min-height:400px}
+	footer{margin-bottom:50px}
+	video{margin:2em 0;border:1px solid #ddd}
+	nav{font-size:.9em;font-style:italic;border-bottom:1px solid #ddd;padding:1em 0}
+	nav p{margin:0}
+	details{margin: 15px 0;}
+	summary{cursor:pointer;padding: 4px;}
+	summary:focus{outline: none;box-shadow: 0 0 3px #2196F3;}
+	.h1,h1{font-size:2.2em;}
+	.h2,h2{font-size:1.9em;}
+	.h3,h3{font-size:1.6em;}
+	.h4,h4{font-size:1.3em;}
+	.h5,h5{font-size:1.2em;}
+	.h6,h6{font-size:1.1em;}
+	.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{
+		font-family:inherit;font-weight:500;color: #333;
+		line-height: 1.2em;padding: 0.3em 0;margin: 0.8em 0 0.4em 0;
+		word-break: break-all;
+	}
+	.h1,h1{letter-spacing: 1px;border-bottom: 1px solid #ddd;}
+	.h2,h2{padding-bottom: 0.15em;}
+	p{-webkit-hypens:auto;-moz-hypens:auto;hyphens:auto;margin:10px 0;}
+	p,li,div,ul{word-wrap: break-all;}
+	blockquote{margin-left:1em;padding:10px 15px;margin:10px 0 20px 0;border-left:10px solid #ddd;background: #f6f6f6;}
+	blockquote p{margin:0;font-weight:400;}
+	pre{display:block;padding:0;overflow:auto;margin:0 0 10px;font-size:1em;line-height:1.42857143;
+		word-break:break-all;word-wrap:break-word;color:#333;background:none;border-radius:4px}
+	code,kbd,pre,samp{
+		font-family:Consolas,'Liberation Mono','Ubuntu Mono',Menlo,Courier,sans-serif;
+	}
+	a{color:#1980e6;text-decoration:none}
+	a:hover{text-decoration:underline}
+	a img{border:none}
+	img{max-width: 100%;}
+	h1 a,h1 a:hover{text-decoration:none}
+	hr{border: 0 none;height: 4px;margin:1.2em 0;
+	    background: rgba(0, 0, 0, 0) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+	}
+	@media screen and (min-width: 900px) {
+		body {width: 900px;}
+	}
+	ul,ol{padding:0.2em 0 0.2em 2em;}
+	table {border-collapse: collapse;border-spacing: 0;margin-bottom: 20px;}
+	table thead{background: #eee;}
+	table td,table th{padding: .5em;border: 1px solid #ddd;line-height: 1.5;}
+	.markdown-flow{background:#fff;padding: 15px;}
+	.markdown-flow .label{color:#444;}
+	.markdown-latex {
+		text-align: center;font-size:1.3em;color: #000;
+		margin-bottom: 1.5em;overflow: hidden;overflow-x:auto;
+	}
+	.latex-inline .katex-display{display:inline-block;font-size: 0.8em;}
+	.markdown-menu ul{padding:0 10px 20px 20px;}
+	.markdown-menu li{
+		font-size:14px;list-style:none;
+		line-height:1.8em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+	}
+	.markdown-menu-h2{padding-left:2em;}
+	.markdown-menu-h3{padding-left:4em;}
+	.markdown-menu-h4{padding-left:6em;}
+	.markdown-menu-h5{padding-left:8em;}
+	.markdown-menu-h6{padding-left:10em;}
+
+	.print-btn{
+		position:absolute;padding:4px 20px;color:#444;font-size:1em;
+		background:#eee;background:rgba(200,200,200,0.2);margin-top: -45px;right:15px;
+	}
+	.print-btn:hover{text-decoration: none;background: #14a2ff;color: #fff;}
+
+	.hidden{display:none !important;}
+
+	/*打印样式*/
+	@media print {
+		body{padding:0 1.5cm;margin:0 auto 10px auto;font-size:13px;}
+		.print-btn{display: none;}
+	}
+
+	ol.linenums {
+	    padding-left: 2.5em;
+	}
+	ol.linenums li {
+	    list-style-type: decimal!important;
+	}
+</style>
+<body>
+<!-- MarkDown Content -->
+<center><h1>狗屁不通文章生成器</h1></center>
+<h2 id="h2-u58F0u660E"><a name="声明" class="reference-link" one-link-mark="yes"></a><span class="header-link octicon octicon-link"></span>声明</h2><p>仅供测试使用，请勿将生成的文章用于正规用途</p>
+<h2 id="h2-u514Du8D23u58F0u660E"><a name="免责声明" class="reference-link" one-link-mark="yes"></a><span class="header-link octicon octicon-link"></span>免责声明</h2><ul>
+<li>在使用本作品前，请您务必仔细阅读并透彻理解本声明。您可以选择不使用本作品，但如果您使用本作品，您的使用行为将被视为对本声明全部内容的认可。</li><li>本作品产生的文章由用户输入内容结合随机信息生成，版权人不保障生成文章的安全性、正确性、及时性、合法性，用户在使用过程中的风险由用户自行承担，版权人对用户使用本作品产生的内容其概不负责，亦不承担任何法律责任。</li><li>任何本作品生成的链接地址均系第三方或用户生成，版权人对链接本身及由链接产生的内容概不负责，亦不承担任何法律责任。</li><li>本作品产生的文章均由浏览器产生，无服务器端服务且无存储，版权人不对由用户产生的侵权行为负责，亦不承担任何法律责任。</li><li>本作品不对用户使用过程中使用的任何第三方产品负责，亦不承担任何法律责任。</li><li>本作品不对任何本作品使用的第三方服务负责，亦不承担任何法律责任。</li><li>本作品不对任何基于本作品的衍生品负责，亦不承担任何法律责任。</li></ul>
+<h2 id="h2-u8BB8u53EFu8BC1"><a name="许可证" class="reference-link" one-link-mark="yes"></a><span class="header-link octicon octicon-link"></span>许可证</h2>
+<p>在符合下列条件的情况下，特此免费向任何得到本授权作品的副本（包括源代码、文件和/或相关内容，以下统称为“授权作品”）的个人和法人实体授权：被授权个人或法人实体有权以任何目的处置授权作品，包括但不限于使用、复制，修改，衍生利用、散布，发布和再许可：</p>
+<ol>
+<li>个人或法人实体必须在许可作品的每个再散布或衍生副本上包含以上版权声明和本许可证，不得自行修改。</li><li>个人或法人实体必须严格遵守与个人实际所在地或个人出生地或归化地、或法人实体注册地或经营地（以较严格者为准）的司法管辖区所有适用的与劳动和就业相关法律、法规、规则和标准。如果该司法管辖区没有此类法律、法规、规章和标准或其法律、法规、规章和标准不可执行，则个人或法人实体必须遵守国际劳工标准的核心公约。</li><li>个人或法人不得以任何方式诱导、暗示或强迫其全职或兼职员工或其独立承包人以口头或书面形式同意直接或间接限制、削弱或放弃其所拥有的，受相关与劳动和就业有关的法律、法规、规则和标准保护的权利或补救措施，无论该等书面或口头协议是否被该司法管辖区的法律所承认，该等个人或法人实体也不得以任何方法限制其雇员或独立承包人向版权持有人或监督许可证合规情况的有关当局报告或投诉上述违反许可证的行为的权利。</li></ol>
+<p>该授权作品是”按原样”提供，不做任何明示或暗示的保证，包括但不限于对适销性、特定用途适用性和非侵权性的保证。在任何情况下，无论是在合同诉讼、侵权诉讼或其他诉讼中，版权持有人均不承担因本软件或本软件的使用或其他交易而产生、引起或与之相关的任何索赔、损害或其他责任。</p>
+
+
+<!-- /MarkDown Content -->
+</body>
+<html>
+
+	

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 后台管理</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <!--引入Bootstrap-->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background-image: url(./img/background.jpg);
+        }
+
+        .register {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .left {
+            height: 100%;
+            width: 50%;
+            background: rgb(255 255 255 / 95%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 40px;
+        }
+
+        .right {
+            height: 100%;
+            width: 50%;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        p.one {
+            font-size: 1.5rem;
+        }
+
+        p.two {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .mb-3.form-check {
+            margin-top: 1rem;
+        }
+
+        .button {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button {
+            margin: 4px;
+        }
+
+        .footer-text {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            background: rgb(255 255 255 / 80%);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <div class="left">
+            <p class="one">欢迎使用</p>
+            <p class="two">后台管理系统</p>
+        </div>
+        <div class="right">
+            <form action="./index.html" method="dialog">
+                <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label">账号</label>
+                    <input type="Text" class="form-control" id="exampleInputText1" aria-describedby="TextHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">电子邮件</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+                <label for="inputPassword5" class="form-label">密码</label>
+                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                <div id="passwordHelpBlock" class="form-text">请输入8-16位字母+数字组合</div>
+                <div class="button">
+                    <a class="btn btn-primary" href="./index.html" role="button">注册账号</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="fixed-bottom">
+        <div class="footer-text">Copyright © 计算机19A2 孙永祎. All rights reserved.</div>
+    </footer>
+    <!--引入Bootstrap-->
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>

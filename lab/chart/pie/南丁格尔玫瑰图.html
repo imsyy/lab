@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png?_v_=20200710_1">
+        <title>南丁格尔玫瑰图</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+        <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            var option = {
+                legend: {
+                    top: 'bottom'
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: { show: true },
+                        dataView: { show: true, readOnly: false },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
+                    }
+                },
+                series: [
+                    {
+                        name: '面积模式',
+                        type: 'pie',
+                        radius: [50, 250],
+                        center: ['50%', '50%'],
+                        roseType: 'area',
+                        itemStyle: {
+                            borderRadius: 8
+                        },
+                        data: [
+                            { value: 40, name: '玫瑰 1' },
+                            { value: 38, name: '玫瑰 2' },
+                            { value: 32, name: '玫瑰 3' },
+                            { value: 30, name: '玫瑰 4' },
+                            { value: 28, name: '玫瑰 5' },
+                            { value: 26, name: '玫瑰 6' },
+                            { value: 22, name: '玫瑰 7' },
+                            { value: 18, name: '玫瑰 8' }
+                        ]
+                    }
+                ]
+            };
+            // 图表结束
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+            function fn() {
+                var height = document.getElementById("container").offsetHeight
+                var width = document.getElementById("container").offsetWidth
+            };
+            fn();
+            window.onresize = function () {
+                fn();
+                myChart.resize();
+            }
+        </script>
+    </body>
+</html>
+    

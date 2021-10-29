@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Fern</title>
+    <style>
+        #canvas {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas">抱歉，你的浏览器不支持 canvas</canvas>
+    <script>
+        class Matrix {
+            constructor(data) {
+                this.data = data;
+                this.row = data.length;
+                this.col = data[0].length;
+            }
+
+            get str() {
+                var ret = "[";
+                for (var i = 0; i < this.row; i++) {
+                    ret += (i == 0) ? '[' : ' [';
+                    for (var j = 0; j < this.col; j++)
+                        ret += ((j == 0) ? '' : ', ') + this.data[i][j];
+                    ret += (i == this.row - 1) ? ']' : ']\n';
+                }
+                return ret + ']';
+            }
+
+            get T() {
+                var ret = MatZeros(this.col, this.row);
+                for (var i = 0; i < this.row; i++)
+                    for (var j = 0; j < this.col; j++)
+                        ret.data[j][i] = this.data[i][j];
+                return ret;
+            }
+
+            reshape(row, col) {
+                if (row * col != this.row * this.col)
+                    console.warn("some numbers will be ignored or be zero!!!");
+
+                var ret = MatZeros(row, col);
+                var cnt = 0;
+                for (var i = 0; i < this.row; i++)
+                    for (var j = 0; j < this.col; j++) {
+                        ret.data[Math.floor(cnt / col)][cnt % col] = this.data[i][j];
+                        if (++cnt == row * col)
+                            return ret;
+                    }
+                return ret;
+            }
+
+            dot(uMatrix) {
+                return MatDot(this, uMatrix);
+            }
+
+            multiMat(uMatrix) {
+                return MatMulti(this, uMatrix);
+            }
+
+            multiNum(num) {
+                return this.apply((x) => (x * num));
+            }
+
+            plus(uMatrix) {
+                return MatPlus(this, uMatrix);
+            }
+
+            minus(uMatrix) {
+                return MatPlus(this, uMatrix.apply((x) => -x));
+            }
+
+            apply(translator) {
+                var ret = MatZeros(this.row, this.col);
+                for (var i = 0; i < this.row; i++)
+                    for (var j = 0; j < this.col; j++)
+                        ret.data[i][j] = translator(this.data[i][j]);
+                return ret;
+            }
+        }
+
+        function MatDot(a, b) {
+            if (a.col != b.row) {
+                console.error("a.col != b.row!");
+                return null;
+            }
+            var ret = MatZeros(a.row, b.col);
+            for (var i = 0; i < a.row; i++)
+                for (var j = 0; j < b.col; j++)
+                    for (var k = 0; k < a.col; k++)
+                        ret.data[i][j] += a.data[i][k] * b.data[k][j];
+            return ret;
+        }
+
+        function MatPlus(a, b) {
+            if (a.col != b.col || a.row != b.row) {
+                console.error("a.col != b.col || a.row != b.row!");
+                return null;
+            }
+            for (var i = 0; i < a.row; i++)
+                for (var j = 0; j < a.col; j++)
+                    a.data[i][j] += b.data[i][j];
+            return a;
+        }
+
+        function MatMulti(a, b) {
+            if (a.col != b.col || a.row != b.row) {
+                console.error("a.col != b.col || a.row != b.row!");
+                return null;
+            }
+            for (var i = 0; i < a.row; i++)
+                for (var j = 0; j < a.col; j++)
+                    a.data[i][j] *= b.data[i][j];
+            return a;
+        }
+
+        function MatZeros(row, col) {
+            var ret = new Array();
+            for (var i = 0; i < row; i++) {
+                ret[i] = new Array();
+                for (var j = 0; j < col; j++)
+                    ret[i][j] = 0;
+            }
+            return new Matrix(ret);
+        }
+
+        function MatRand(row, col, float) {
+            var ret = new Array();
+            for (var i = 0; i < row; i++) {
+                ret[i] = new Array();
+                for (var j = 0; j < col; j++)
+                    ret[i][j] = (Math.random() - 0.5) * 2 * float;
+            }
+            return new Matrix(ret);
+        }
+
+        var ctx;
+
+        window.onload = () => {
+            std = Math.min(document.documentElement.clientHeight, document.documentElement.clientWidth);
+            ctx = canvas.getContext("2d");
+
+            canvas.setAttribute("width", `${std}px`);
+            canvas.setAttribute("height", `${std}px`);
+
+            ctx.fillStyle = "green";
+
+            var x = new Matrix([
+                [0.5],
+                [0.5]
+            ]);
+
+            var p = [0.85, 0.92, 0.99, 1.00];
+
+            var A1 = new Matrix([
+                [0.85, 0.04],
+                [-0.04, 0.85]
+            ]);
+            var b1 = new Matrix([
+                [0],
+                [1.6]
+            ]);
+
+            var A2 = new Matrix([
+                [0.20, -0.26],
+                [0.23, 0.22]
+            ]);
+            var b2 = new Matrix([
+                [0],
+                [1.6]
+            ]);
+
+            var A3 = new Matrix([
+                [-0.15, 0.28],
+                [0.26, 0.24]
+            ]);
+            var b3 = new Matrix([
+                [0],
+                [0.44]
+            ]);
+
+            var A4 = new Matrix([
+                [0, 0],
+                [0, 0.16]
+            ]);
+
+            for (var i = 0; i < 100000; i++) {
+                setTimeout(() => {
+                    dot(std / 2 + x.data[0][0] * std / 10, std + 10 - x.data[1][0] * std / 10);
+                    var rand = Math.random();
+
+                    if (rand < p[0]) x = A1.dot(x).plus(b1);
+                    else if (rand < p[1]) x = A2.dot(x).plus(b2);
+                    else if (rand < p[2]) x = A3.dot(x).plus(b3);
+                    else x = A4.dot(x);
+                }, 0);
+            }
+        }
+
+        function dot(x, y, size = .5) {
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    </script>
+</body>
+
+</html>

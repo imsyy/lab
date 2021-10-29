@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="force-rendering" content="webkit" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>圣遗物副词条数便捷计算器</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<!-- 引入样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<!--导航栏-->
+	<nav class="navbar navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				<img src="./image/shengyiwu.png" alt="" width="30" height="26" class="d-inline-block align-text-top">
+				圣遗物副词条数便捷计算器
+			</a>
+			<span class="navbar-text">
+				你的圣遗物毕业了吗？| 更新至 <strong>珊瑚宫心海</strong>
+			</span>
+		</div>
+	</nav>
+	<!--总体布局-->
+	<div class="container">
+		<div class="row">
+			<!--数据填写-->
+			<div class="col-8">
+				<div class="row">
+					<div class="col">
+						<!--角色选择-->
+						<div class="card">
+							<div class="card-header">
+								角色选择
+							</div>
+							<div class="card-body">
+								<div class="mb-3">
+									<label class="form-label">角色</label>
+									<select id="Char" class="form-select" onchange="SetChar(2)">
+										<optgroup label="风元素">
+											<option>温迪</option>
+											<option>琴</option>
+											<option>魈</option>
+											<option>风旅行者</option>
+											<option>砂糖</option>
+											<option>枫原万叶</option>
+											<option>早柚</option>
+										</optgroup>
+										<optgroup label="水元素">
+											<option>达达利亚</option>
+											<option>莫娜</option>
+											<option>行秋</option>
+											<option>芭芭拉</option>
+											<option>珊瑚宫心海</option>
+										</optgroup>
+										<optgroup label="火元素">
+											<option>迪卢克</option>
+											<option>可莉</option>
+											<option>胡桃</option>
+											<option>班尼特</option>
+											<option>香菱</option>
+											<option>安柏</option>
+											<option>辛焱</option>
+											<option>烟绯</option>
+											<option>宵宫</option>
+											<option>托马</option>
+										</optgroup>
+										<optgroup label="冰元素">
+											<option>七七</option>
+											<option>甘雨</option>
+											<option>优菈</option>
+											<option>重云</option>
+											<option>迪奥娜</option>
+											<option>凯亚</option>
+											<option>罗莎莉亚</option>
+											<option>神里绫华</option>
+											<option>埃洛伊</option>
+										</optgroup>
+										<optgroup label="雷元素">
+											<option>刻晴</option>
+											<option>菲谢尔</option>
+											<option>北斗</option>
+											<option>雷泽</option>
+											<option>丽莎</option>
+											<option>雷电将军</option>
+											<option>九条裟罗</option>
+										</optgroup>
+										<optgroup label="岩元素">
+											<option>钟离</option>
+											<option>阿贝多</option>
+											<option>岩旅行者</option>
+											<option>凝光</option>
+											<option>诺艾尔</option>
+										</optgroup>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">等级</label>
+									<select id="Level" class="form-select" onchange="SetChar(0)">
+										<option value="2">90级</option>
+										<option value="1">80级已突破</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!--圣遗物主属性-->
+						<div class="card">
+							<div class="card-header">
+								圣遗物主属性
+							</div>
+							<div class="card-body">
+								<div class="mb-3">
+									<label class="form-label">时之沙</label>
+									<select id="A1" class="form-select" onchange="SetChar(0)">
+										<option value=1>生命值%</option>
+										<option value=2>攻击力%</option>
+										<option value=3>防御力%</option>
+										<option value=4>元素精通</option>
+										<option value=5>充能效率</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">空之杯</label>
+									<select id="A2" class="form-select" onchange="SetChar(0)">
+										<option value=1>生命值%</option>
+										<option value=2>攻击力%</option>
+										<option value=3>防御力%</option>
+										<option value=4>元素精通</option>
+										<option value=8>属性伤害</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">理之冠</label>
+									<select id="A3" class="form-select" onchange="SetChar(0)">
+										<option value=1>生命值%</option>
+										<option value=2>攻击力%</option>
+										<option value=3>防御力%</option>
+										<option value=4>元素精通</option>
+										<option value=6>暴击率</option>
+										<option value=7>暴击伤害</option>
+										<option value=9>治疗加成</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<!--圣遗物详情-->
+						<div class="card">
+							<div class="card-header">
+								圣遗物详情
+							</div>
+							<div class="card-body">
+								<div class="mb-3">
+									<label class="form-label">+ 生命值</label>
+									<input type="text" class="form-control" id="T1" value="0" onchange="SetCharS('T1')">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">+ 攻击力</label>
+									<input type="text" class="form-control" id="T2" value="0" onchange="SetCharS('T2')">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">+ 防御力</label>
+									<input type="text" class="form-control" id="T3" value="0" onchange="SetCharS('T3')">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">+ 元素精通</label>
+									<input type="text" class="form-control" id="T4" value="0" onchange="SetCharS('T4')">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">+ 暴击率%</label>
+									<input type="text" class="form-control" id="T5" value="0" onchange="SetCharS('T5')">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">+ 暴击伤害%</label>
+									<input type="text" class="form-control" id="T6" value="0" onchange="SetCharS('T6')">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">+ 元素充能效率%</label>
+									<input type="text" class="form-control" id="T7" value="0" onchange="SetCharS('T7')">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--结果-->
+			<div class="col-4">
+				<!--武器攻击力白值-->
+				<div class="card">
+					<div class="card-header">
+						武器攻击力白值
+					</div>
+					<div class="card-body">
+						<div class="mb-3">
+							<label class="form-label">武器界面的基础攻击力</label>
+							<input type="text" class="form-control" id="QQ" onchange="SetCharS('QQ')">
+						</div>
+					</div>
+				</div>
+				<!--总结-->
+				<div class="card">
+					<div class="card-header">
+						总结
+					</div>
+					<div class="card-body">
+						<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+							<symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+								<path
+									d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+							</symbol>
+						</svg>
+						<p id="result">暂无结果</p>
+						<p id="hint"></p>
+						<a class="btn btn-outline-primary" onclick="SetChar(1)" role="button">生成结果</a>
+						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+							data-bs-target="#Modal">
+							使用说明
+						</button>
+						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+							data-bs-target="#Modal1">
+							数值解读
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 使用说明 -->
+	<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">使用说明</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>选择角色和等级 ( 80突破以下直接使用80突破即可 )</p>
+					<p>然后选择好时之沙、空之杯和理之冠的 <strong>主词条</strong></p>
+					<p>打开 <strong>圣遗物详情</strong> 面板，在表格中填入对应的数值</p>
+					<p>填写武器攻击力白值 ( 即面板中武器的基础攻击力数值 )</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">知道了</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 数值解读 -->
+	<div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">数值解读</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>对于一般的 C，普遍认为 <strong>20~25条</strong> 有效词条属于 <strong>小毕业区间</strong>，<strong>25~30条</strong>
+						属于 <strong>毕业区间</strong>，胡桃等特殊角色可能需要的有效词条数量会更多</p>
+					<p>但是数量越多，就意味着毕业程度越高吗？未必</p>
+					<p>副词条数量则是一个总的加法结果，但我们都知道伤害是由各种区间组成，同样的数值上限，如果能将词条合理地分配到不同的区间里，通过乘法可得知，总的伤害会更高</p>
+					<p>打个比方，圣遗物副词条容易歪攻击，但是 <strong>攻击</strong> 是这个游戏最容易稀释的区间：宗室4、千岩4、讨龙等等</p>
+					<p>相比之下，<strong>暴击</strong>、<strong>爆伤</strong> 这些很难靠角色拐出来的区间就珍贵的多</p>
+					<p>因此，副词条总数只能是毕业与否的一个参考标准，而不是绝对标准</p>
+					<p><strong>但我们依然可以通过参考各个区间的副词条数量，可以清晰地看出来你的一套圣遗物里副词条的进步空间在哪</strong></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">知道了</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--页脚-->
+	<footer>
+		<div class="sticky-bottom">
+			<p class="footer">本站为 <a href="http://spongem.com/ajglz/ys/ys.html" target="_blank">阿秋</a> 的美化版&nbsp;|&nbsp;原作者 &copy; NGA-pressure_pressure<br/>
+			Powered &copy; 2020<script>
+					document.write(' - ' + (new Date()).getFullYear())
+				</script>&nbsp;<a href="https://lab.imsyy.top/">無名の网页实验室</a>&nbsp;|&nbsp;<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备20013231-2号</a>
+			</p>
+		</div>
+	</footer>
+</body>
+
+<!-- JS -->
+<script type="text/javascript" src="./js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

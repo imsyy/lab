@@ -1,0 +1,92 @@
+body,
+html {
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::-moz-selection {
+    background-color: rgba(187, 221, 251);
+}
+
+*::selection {
+    background-color: rgba(187, 221, 251);
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+a::hover {
+    color: unset;
+}
+
+a::visited {
+    color: unset;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+}
+
+.can-select {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
+
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.no-drag {
+    -webkit-user-drag: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.mA {
+    margin: 0 auto;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: unset;
+    font-weight: unset;
+}

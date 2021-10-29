@@ -1,0 +1,604 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="在线屏幕测试,坏点检测,坏点测试软件,坏点测试图片,坏点修复,显示器坏点,屏幕坏点,测试屏幕坏点,投影仪测试,DisplayX,屏幕保护,lcdtest" />
+    <meta name="description" content="免费在线屏幕测试工具，汇集专业的屏幕测试环节，对您的显示设备做一次全面的体检。" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta property="og:image" content="image/og.png">
+    <title>在线屏幕测试</title>
+    <link rel="Shortcut Icon" href="./htmlimg/favicon.ico" type="image/x-icon" />
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.mousewheel.min.js?v=3"></script>
+    <script type="text/javascript" src="javascript/jquery.fullscreen.min.js"></script>
+    <script type="text/javascript" src="javascript/script.min.js"></script>
+    <style>
+        .og-image {
+            position: absolute;
+            opacity: 0;
+        }
+
+        #welcome .left {
+            text-align: center;
+        }
+
+            #welcome .left .start {
+                margin-bottom: 40px;
+            }
+
+        .link-more {
+            color: #999;
+        }
+    </style>
+</head>
+<body id="body" oncontextmenu=self.event.returnValue=false onselectstart="return false">
+    <img src="image/og.png" class="og-image" alt="专业的在线屏幕检测工具" title="专业的在线屏幕检测工具" />
+    <div id="container">
+        <ul id="main">
+            <li data-title="欢迎页" data-desc="" class="slide" id="welcome">
+                <div class="wrapper">
+                    <div class="top left">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>屏幕</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>测试机</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a class="button start" id="start">立即开始</a>
+                    </div>
+                    <div class="top right">
+                        <div class="technical">
+                            <h1>在线屏幕测试</h1>
+                            <p>想知道屏幕是否有缺陷？来给显示器做个体检吧！<br>提供的检查项目包括：纯色、漏光测试、干扰测试、对焦、呼吸效应、对比度、色阶、饱和度<br>通过该测试可以大致的测试出显示器的质量和水平</p>
+                            <p>
+                                <span class="title"><b>当前分辨率：</b></span>
+                                <span class="value" id="resolution"></span>
+                            </p>
+                            <p>
+                                <span class="title"><b>内容分辨率：</b></span>
+                                <span class="value" id="bodysize"></span>
+                            </p>
+                            <p>分辨率信息仅供参考，一些浏览器在缩放后无法提供正确的分辨率值</p>
+                            <p>请在测试时关闭浏览器页面缩放功能</p>
+                            <p>如果不能自动全屏，请手工将浏览器全屏 ( 快捷键 F11 )</p><br>
+                            <p class="disclaimer">本测试工具通常不会对您的显示设备有任何伤害，且不能代替专业的检测器械。通常显示设备中有高压，非专业人士请不要自行维修您的显示设备。本工具的测试结果仅供参考，对本站的任何内容以及产生的结果不承担任何保证或责任。</p>
+                        </div>
+                        <div id="preloader"></div>
+                    </div>
+                </div>
+            </li>
+            <li data-title="纯红色" data-desc="通常LCD显示器偶尔会有暗点 ( 永远保持黑色 )，请检查每个像素。注意屏幕上的灰尘有可能会被误认为坏点。" class="slide hide test" id="test-solid-red"></li>
+            <li data-title="纯绿色" data-desc="通常LCD显示器偶尔会有暗点 ( 永远保持黑色 )，请检查每个像素。注意屏幕上的灰尘有可能会被误认为坏点。" class="slide hide test" id="test-solid-green"></li>
+            <li data-title="纯蓝色" data-desc="通常LCD显示器偶尔会有暗点 ( 永远保持黑色 )，请检查每个像素。注意屏幕上的灰尘有可能会被误认为坏点。" class="slide hide test" id="test-solid-blue"></li>
+            <li data-title="纯黄色" data-desc="通常LCD显示器偶尔会有坏点 ( 永远保持某一颜色 )，请检查每个像素。" class="slide hide test" id="test-solid-yellow"></li>
+            <li data-title="纯青色" data-desc="通常LCD显示器偶尔会有坏点 ( 永远保持某一颜色 )，请检查每个像素。" class="slide hide test" id="test-solid-cyan"></li>
+            <li data-title="纯洋红色" data-desc="通常LCD显示器偶尔会有坏点 ( 永远保持某一颜色 )，请检查每个像素。" class="slide hide test" id="test-solid-magenta"></li>
+            <li data-title="纯白色" data-desc="除了用于测试坏点外，纯白屏通常用于测试显示器的亮度是否均衡，以及是否有不明显的色块存在。" class="slide hide test" id="test-solid-white"></li>
+            <li data-title="纯黑色" data-desc="除了用于测试坏点外，纯黑屏还常用于漏光测试水平。" class="slide hide test" id="test-solid-black"></li>
+            <li data-title="水平线1" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-horizontal-line-1px"></li>
+            <li data-title="水平线2" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-horizontal-line-2px"></li>
+            <li data-title="垂直线1" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-vertical-line-1px"></li>
+            <li data-title="垂直线2" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-vertical-line-2px"></li>
+            <li data-title="正斜线1" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-cross-1px"></li>
+            <li data-title="正斜线2" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-cross-2px"></li>
+            <li data-title="点阵1" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-dots-1px"></li>
+            <li data-title="点阵2" data-desc="主要测试模拟信号的干扰水平，画面稳定的显示设备更佳。" class="slide hide test" id="test-dots-2px"></li>
+            <li data-title="微型图案" data-desc="通常用于测试 CRT 显示器以及投影仪的对焦水平，请检查每个图案是否都清晰可见。" class="slide hide test" id="test-pattern"></li>
+            <li data-title="闪烁方块" data-desc="通常用于测试 CRT 显示器的呼吸效应程度，边缘线条稳定的显示设备更佳。" class="slide hide test" id="test-stability">
+                <table>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </li>
+            <li data-title="方形网格" data-desc="请通过显示器的 OSD 设置菜单，使得线条横平竖直。" class="slide hide test" id="test-white-grid">
+                <div></div>
+            </li>
+            <li data-title="彩色网格" data-desc="请检查线条是否有相同的宽度，以及线条是否平整。尤其是屏幕的边缘。" class="slide hide test" id="test-convergence"></li>
+            <li data-title="对比度「 暗 」" data-desc="用于测试屏幕的对比度，一般的非专业显示器无法区分最后一行的色块边缘。" class="slide hide test test-contrast" id="test-contrast-white">
+                <table>
+                    <tbody>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #AFAFAF">
+                                68.63%<br />
+                                <i>(175/255)</i>
+                            </td>
+                            <td style="background-color: #B7B7B7">
+                                71.76%<br />
+                                <i>(183/255)</i>
+                            </td>
+                            <td style="background-color: #BFBFBF">
+                                74.90%<br />
+                                <i>(191/255)</i>
+                            </td>
+                            <td style="background-color: #C7C7C7">
+                                78.04%<br />
+                                <i>(199/255)</i>
+                            </td>
+                            <td style="background-color: #CFCFCF">
+                                81.18%<br />
+                                <i>(207/255)</i>
+                            </td>
+                            <td style="background-color: #D7D7D7">
+                                84.31%<br />
+                                <i>(215/255)</i>
+                            </td>
+                            <td style="background-color: #DFDFDF">
+                                87.45%<br />
+                                <i>(223/255)</i>
+                            </td>
+                            <td style="background-color: #E7E7E7">
+                                90.59%<br />
+                                <i>(231/255)</i>
+                            </td>
+                            <td style="background-color: #EFEFEF">
+                                93.73%<br />
+                                <i>(239/255)</i>
+                            </td>
+                            <td style="background-color: #F7F7F7">
+                                96.86%<br />
+                                <i>(247/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #D7D7D7">
+                                84.31%<br />
+                                <i>(215/255)</i>
+                            </td>
+                            <td style="background-color: #DBDBDB">
+                                85.88%<br />
+                                <i>(219/255)</i>
+                            </td>
+                            <td style="background-color: #DFDFDF">
+                                87.45%<br />
+                                <i>(223/255)</i>
+                            </td>
+                            <td style="background-color: #E3E3E3">
+                                89.02%<br />
+                                <i>(227/255)</i>
+                            </td>
+                            <td style="background-color: #E7E7E7">
+                                90.59%<br />
+                                <i>(231/255)</i>
+                            </td>
+                            <td style="background-color: #EBEBEB">
+                                92.16%<br />
+                                <i>(235/255)</i>
+                            </td>
+                            <td style="background-color: #EFEFEF">
+                                93.73%<br />
+                                <i>(239/255)</i>
+                            </td>
+                            <td style="background-color: #F3F3F3">
+                                95.29%<br />
+                                <i>(243/255)</i>
+                            </td>
+                            <td style="background-color: #F7F7F7">
+                                96.86%<br />
+                                <i>(247/255)</i>
+                            </td>
+                            <td style="background-color: #FBFBFB">
+                                98.43%<br />
+                                <i>(251/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #EBEBEB">
+                                92.16%<br />
+                                <i>(235/255)</i>
+                            </td>
+                            <td style="background-color: #EDEDED">
+                                92.94%<br />
+                                <i>(237/255)</i>
+                            </td>
+                            <td style="background-color: #EFEFEF">
+                                93.73%<br />
+                                <i>(239/255)</i>
+                            </td>
+                            <td style="background-color: #F1F1F1">
+                                94.51%<br />
+                                <i>(241/255)</i>
+                            </td>
+                            <td style="background-color: #F3F3F3">
+                                95.29%<br />
+                                <i>(243/255)</i>
+                            </td>
+                            <td style="background-color: #F5F5F5">
+                                96.08%<br />
+                                <i>(245/255)</i>
+                            </td>
+                            <td style="background-color: #F7F7F7">
+                                96.86%<br />
+                                <i>(247/255)</i>
+                            </td>
+                            <td style="background-color: #F9F9F9">
+                                97.65%<br />
+                                <i>(249/255)</i>
+                            </td>
+                            <td style="background-color: #FBFBFB">
+                                98.43%<br />
+                                <i>(251/255)</i>
+                            </td>
+                            <td style="background-color: #FDFDFD">
+                                99.22%<br />
+                                <i>(253/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #F5F5F5">
+                                96.08%<br />
+                                <i>(245/255)</i>
+                            </td>
+                            <td style="background-color: #F6F6F6">
+                                96.47%<br />
+                                <i>(246/255)</i>
+                            </td>
+                            <td style="background-color: #F7F7F7">
+                                96.86%<br />
+                                <i>(247/255)</i>
+                            </td>
+                            <td style="background-color: #F8F8F8">
+                                97.25%<br />
+                                <i>(248/255)</i>
+                            </td>
+                            <td style="background-color: #F9F9F9">
+                                97.65%<br />
+                                <i>(249/255)</i>
+                            </td>
+                            <td style="background-color: #FAFAFA">
+                                98.04%<br />
+                                <i>(250/255)</i>
+                            </td>
+                            <td style="background-color: #FBFBFB">
+                                98.43%<br />
+                                <i>(251/255)</i>
+                            </td>
+                            <td style="background-color: #FCFCFC">
+                                98.82%<br />
+                                <i>(252/255)</i>
+                            </td>
+                            <td style="background-color: #FDFDFD">
+                                99.22%<br />
+                                <i>(253/255)</i>
+                            </td>
+                            <td style="background-color: #FEFEFE">
+                                99.61%<br />
+                                <i>(254/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li data-title="对比度「 亮 」" data-desc="用于测试屏幕的对比度，一般的非专业显示器无法区分第一行的色块边缘。" class="slide hide test test-contrast" id="test-contrast-black">
+                <table>
+                    <tbody>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #010101">
+                                0.39%<br />
+                                <i>(1/255)</i>
+                            </td>
+                            <td style="background-color: #020202">
+                                0.78%<br />
+                                <i>(2/255)</i>
+                            </td>
+                            <td style="background-color: #030303">
+                                1.18%<br />
+                                <i>(3/255)</i>
+                            </td>
+                            <td style="background-color: #040404">
+                                1.57%<br />
+                                <i>(4/255)</i>
+                            </td>
+                            <td style="background-color: #050505">
+                                1.96%<br />
+                                <i>(5/255)</i>
+                            </td>
+                            <td style="background-color: #060606">
+                                2.35%<br />
+                                <i>(6/255)</i>
+                            </td>
+                            <td style="background-color: #070707">
+                                2.75%<br />
+                                <i>(7/255)</i>
+                            </td>
+                            <td style="background-color: #080808">
+                                3.14%<br />
+                                <i>(8/255)</i>
+                            </td>
+                            <td style="background-color: #090909">
+                                3.53%<br />
+                                <i>(9/255)</i>
+                            </td>
+                            <td style="background-color: #0A0A0A">
+                                3.92%<br />
+                                <i>(10/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #020202">
+                                0.78%<br />
+                                <i>(2/255)</i>
+                            </td>
+                            <td style="background-color: #040404">
+                                1.57%<br />
+                                <i>(4/255)</i>
+                            </td>
+                            <td style="background-color: #060606">
+                                2.35%<br />
+                                <i>(6/255)</i>
+                            </td>
+                            <td style="background-color: #080808">
+                                3.14%<br />
+                                <i>(8/255)</i>
+                            </td>
+                            <td style="background-color: #0A0A0A">
+                                3.92%<br />
+                                <i>(10/255)</i>
+                            </td>
+                            <td style="background-color: #0C0C0C">
+                                4.71%<br />
+                                <i>(12/255)</i>
+                            </td>
+                            <td style="background-color: #0E0E0E">
+                                5.49%<br />
+                                <i>(14/255)</i>
+                            </td>
+                            <td style="background-color: #101010">
+                                6.27%<br />
+                                <i>(16/255)</i>
+                            </td>
+                            <td style="background-color: #121212">
+                                7.06%<br />
+                                <i>(18/255)</i>
+                            </td>
+                            <td style="background-color: #141414">
+                                7.84%<br />
+                                <i>(20/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #040404">
+                                1.57%<br />
+                                <i>(4/255)</i>
+                            </td>
+                            <td style="background-color: #080808">
+                                3.14%<br />
+                                <i>(8/255)</i>
+                            </td>
+                            <td style="background-color: #0C0C0C">
+                                4.71%<br />
+                                <i>(12/255)</i>
+                            </td>
+                            <td style="background-color: #101010">
+                                6.27%<br />
+                                <i>(16/255)</i>
+                            </td>
+                            <td style="background-color: #141414">
+                                7.84%<br />
+                                <i>(20/255)</i>
+                            </td>
+                            <td style="background-color: #181818">
+                                9.41%<br />
+                                <i>(24/255)</i>
+                            </td>
+                            <td style="background-color: #1C1C1C">
+                                10.98%<br />
+                                <i>(28/255)</i>
+                            </td>
+                            <td style="background-color: #202020">
+                                12.55%<br />
+                                <i>(32/255)</i>
+                            </td>
+                            <td style="background-color: #242424">
+                                14.12%<br />
+                                <i>(36/255)</i>
+                            </td>
+                            <td style="background-color: #282828">
+                                15.69%<br />
+                                <i>(40/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="color">
+                            <td style="background-color: #080808">
+                                3.14%<br />
+                                <i>(8/255)</i>
+                            </td>
+                            <td style="background-color: #101010">
+                                6.27%<br />
+                                <i>(16/255)</i>
+                            </td>
+                            <td style="background-color: #181818">
+                                9.41%<br />
+                                <i>(24/255)</i>
+                            </td>
+                            <td style="background-color: #202020">
+                                12.55%<br />
+                                <i>(32/255)</i>
+                            </td>
+                            <td style="background-color: #282828">
+                                15.69%<br />
+                                <i>(40/255)</i>
+                            </td>
+                            <td style="background-color: #303030">
+                                18.82%<br />
+                                <i>(48/255)</i>
+                            </td>
+                            <td style="background-color: #383838">
+                                21.96%<br />
+                                <i>(56/255)</i>
+                            </td>
+                            <td style="background-color: #404040">
+                                25.10%<br />
+                                <i>(64/255)</i>
+                            </td>
+                            <td style="background-color: #484848">
+                                28.24%<br />
+                                <i>(72/255)</i>
+                            </td>
+                            <td style="background-color: #505050">
+                                31.37%<br />
+                                <i>(80/255)</i>
+                            </td>
+                        </tr>
+                        <tr class="ruler">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li data-title="白色渐变" data-desc="用于测试显示器的色彩平滑程度，颜色过渡平滑的显示设备更佳。" class="slide hide test test-gradient" id="test-gradient-white">
+                <img src="htmlimg/grey-gradient.png" />
+            </li>
+            <li data-title="红色渐变" data-desc="用于测试显示器的色彩平滑程度，颜色过渡平滑的显示设备更佳。" class="slide hide test test-gradient" id="test-gradient-red">
+                <img src="htmlimg/grey-gradient.png" />
+            </li>
+            <li data-title="绿色渐变" data-desc="用于测试显示器的色彩平滑程度，颜色过渡平滑的显示设备更佳。" class="slide hide test test-gradient" id="test-gradient-green">
+                <img src="htmlimg/grey-gradient.png" />
+            </li>
+            <li data-title="蓝色渐变" data-desc="用于测试显示器的色彩平滑程度，颜色过渡平滑的显示设备更佳。" class="slide hide test test-gradient" id="test-gradient-blue">
+                <img src="htmlimg/grey-gradient.png" />
+            </li>
+            <li data-title="饱和度" data-desc="用于测试屏幕的色彩饱和度，颜色过渡平滑的显示设备更佳。" class="slide hide test" id="test-saturation">
+                <img src="htmlimg/saturation.png" />
+            </li>
+            <li data-title="测试结束" data-desc="感谢您的使用！" class="slide hide" id="test-last"><br><br><h3>测试结束</h3><br>请按任意键退出测试</li>
+        </ul>
+        <div id="control" class="control_hide">
+            <div class="panel top">
+                <span class="title"></span>
+                <span class="description"></span>
+                <span class="close" id="stop"></span>
+            </div>
+            <div class="panel bottom">
+                <div class="wrapper" id="control_buttons"></div>
+                <div class="triangle"></div>
+            </div>
+        </div>
+        <div id="resolution_tips" style="display: none;"></div>
+    </div>
+</body>
+</html>

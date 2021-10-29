@@ -1,0 +1,29 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * proxima-soft:
+ *   - http://typekit.com/eulas/00000000000000003b9b3032
+ *   - http://typekit.com/eulas/00000000000000003b9b3038
+ *
+ * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2020-10-03 21:31:38 UTC"}*/
+
+@import url("../image/p.css");
+
+@font-face {
+font-family:"proxima-soft";
+src:url("../image/074aa7b5d6ba1b55b7520f420037cbd0.png") format("woff2"),url("../image/7d7d9d5db23ea12c3c0c92058eec9d27.png") format("woff"),url("../image/d3e1e9339402faf94010afe0cfb2324c.png") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"proxima-soft";
+src:url("../image/f908bf3e7dd2d0de904c908593bc0ccb.png") format("woff2"),url("../image/fc23e9bc13983af9471adc35699bc3e6.png") format("woff"),url("../image/34ca60504e8b8ec0f43f205d6ee595f8.png") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;
+}
+
+.tk-proxima-soft { font-family: "proxima-soft",sans-serif; }

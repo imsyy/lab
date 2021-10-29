@@ -1,0 +1,71 @@
+a {
+    text-decoration: none !important;
+}
+
+.card {
+    margin-top: 1.5rem;
+}
+
+p.footer {
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0.5rem 1rem 0rem 1rem;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #c8c8c8;
+}
+
+@media (min-width: 992px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 95% !important;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .container,
+    .container-md,
+    .container-sm {
+        max-width: 95% !important;
+    }
+}
+
+@media (min-width: 576px) {
+
+    .container,
+    .container-sm {
+        max-width: 95% !important;
+    }
+}
+
+/*小于992*/
+@media (max-width: 992px) {
+
+    .col-8,
+    .col-4 {
+        width: 100% !important;
+    }
+}
+
+/*小于576*/
+@media (max-width: 576px) {
+    span.navbar-text {
+        display: none;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}

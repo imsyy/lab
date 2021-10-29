@@ -1,0 +1,257 @@
+body {
+    font-family: Microsoft Yahei,"微软雅黑","Helvetica Neue",Helvetica,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
+    user-select: none;
+}
+
+body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+a { text-decoration: none;}
+
+#container {
+    left: 0; right: 0; top: 0;  bottom: 0;
+    position: fixed;
+    overflow: hidden;
+    min-width: 500px;
+}
+#control .panel {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(64, 64, 64, 0.5);
+    z-index: 2;
+    overflow: hidden;
+    transition: all 1s ease-out;
+}
+
+.control_hide .top { top: -40px; }
+.control_show .top { top: 0;}
+#control .top { height: 40px; color: #FFF; }
+#control .top .title {
+    font-family: simhei;
+    font-size: 24px;
+    line-height: 40px;
+    margin: 0 20px;
+}
+#control .top .description { font-size: 12px; }
+#control .top .close {
+    background: url(../image/control-close.png);
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    top: 10px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.control_show .bottom { bottom: 0;}
+.control_hide .bottom { bottom: -80px; }
+#control .bottom { height: 80px; }
+#control .bottom .wrapper {
+    width: 10000px;
+    position: relative;
+    transition: all 1s ease-out;
+}
+#control .bottom .wrapper a {
+    border: 1px solid #FFF;
+    float: left;
+    margin: 10px 0 0 5px;
+    display: block;
+    width: 150px;
+    color: #FFF;
+    height: 60px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: bottom;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0.5);
+    line-height: 60px;
+}
+#control .bottom .triangle {
+    position: absolute;
+    border-color: transparent transparent #FFF;
+    border-style: solid;
+    border-width: 0 50px 10px;
+    height: 0;
+    width: 0;
+    left: 50%;
+    margin: 0 0 0 -50px
+}
+
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    list-style:none;
+    z-index: 0;
+}
+.hide { display: none; }
+
+#main { width: 100%; height: 100%; position: relative; }    
+
+#preloader {
+    background:
+        url("../image/horizontal-line-1px.gif"),
+        url("../image/horizontal-line-2px.gif"),
+        url("../image/vertical-line-1px.gif"),
+        url("../image/vertical-line-2px.gif"),
+        url("../image/dots-1px.gif"),
+        url("../image/dots-2px.gif"),
+        url("../image/cross-1px.gif"),
+        url("../image/cross-2px.gif"),
+        url("../image/boxes-5px.png"),
+        url("../image/white-grid-45px.png"),
+        url("../image/convergence-45px.png"),
+        url("../image/breathing-block.gif");
+    width: 0;
+    height: 0;
+    display: inline-block;
+}
+
+#test-solid-red { background-color: #F00; }
+#test-solid-green { background-color: #0F0; }
+#test-solid-blue { background-color: #00F; }
+#test-solid-yellow { background-color: #FF0; }
+#test-solid-cyan{ background-color: #0FF; }
+#test-solid-magenta { background-color: #F0F; }
+#test-solid-white{ background-color: #FFF; }
+#test-solid-black { background-color: #000; }
+
+#test-horizontal-line-1px { background: #000 url("../image/horizontal-line-1px.gif") repeat center center; }
+#test-horizontal-line-2px { background: #000 url("../image/horizontal-line-2px.gif") repeat center center; }
+#test-vertical-line-1px { background: #000 url("../image/vertical-line-1px.gif") repeat center center; }
+#test-vertical-line-2px { background: #000 url("../image/vertical-line-2px.gif") repeat center center; }
+#test-dots-1px { background: #000 url("../image/dots-1px.gif") repeat center center; }
+#test-dots-2px { background: #000 url("../image/dots-2px.gif") repeat center center; }
+#test-cross-1px { background: #000 url("../image/cross-1px.gif") repeat center center; }
+#test-cross-2px { background: #000 url("../image/cross-2px.gif") repeat center center; }
+
+#test-pattern {
+    background-color: #000;
+    background: url("../image/boxes-5px.png") no-repeat top left,
+    url("../image/boxes-5px.png") no-repeat top right,
+    url("../image/boxes-5px.png") no-repeat bottom left,
+    url("../image/boxes-5px.png") no-repeat bottom right,
+    url("../image/boxes-5px.png") no-repeat center center #000;
+}
+
+#test-white-grid { background: #000 url("../image/white-grid-45px.png") repeat center center; }
+#test-convergence { background: #000 url("../image/convergence-45px.png") repeat center center; }
+
+#test-contrast-white { background-color: #FFF; color: #000; }
+#test-contrast-black { background-color: #000; color: #FFF; }
+
+.test-contrast table {
+    border-collapse:collapse;
+    position: relative;
+    left: 10%;
+    top: 10%;
+    height: 80%;
+    width: 80%;
+    text-align: center;
+    border-spacing: 0;
+}
+.test-contrast table td { width: 10%; padding: 0; }
+.test-contrast table .color td { height:22%; }
+.test-contrast table .ruler td { height:2.2%; border: 1px #808080; border-style: none solid; }
+.test-contrast i { font-size: 10px; font-style:normal; }
+
+#test-saturation  img{ width: 100%; height: 100%; }
+
+#test-stability  table {
+    border: 2px solid #FFF;
+    height: 100%; width: 100%;
+    border-spacing: 0;
+}
+
+#test-stability  table td {
+    border: 6px solid #000;
+    background: #000 url("../image/breathing-block.gif") repeat center center;
+}
+
+.test-gradient  img{ width: 100%; height: 100%; }
+#test-gradient-red { background-color: #F00; }
+#test-gradient-green { background-color: #0F0; }
+#test-gradient-blue { background-color: #00F; }
+#test-gradient-white { background-color: #FFF; }
+
+#test-last { background-color: #000; text-align: center; color: #FFF; }
+#test-center { padding: 50px; }
+
+#welcome  { margin: 0; height: 100%; width: 100%; position: fixed; background-color: #f8f8f8; }
+#welcome  .wrapper { margin: 0 auto; width: 750px; margin: 0 auto; position: relative; }
+#welcome .top { position: absolute; top:108px; height: 480px; }
+#welcome .left { width: 300px; border-right: 2px dashed black; left:0; top: 140px; }
+#welcome .left table { margin: 0 auto; border-spacing: 0; border: 3px solid #000; position: relative; top: 12px; }
+#welcome .left table td { font-family: SimHei, Arial, Helvetica, sans-serif; text-align: center; width: 240px; }
+#welcome .left table thead { font-size: 72px; background-color: #FFF; color: #000; }
+#welcome .left table tbody { font-size: 48px; background-color: #000; color: #FFF; }
+#welcome .left table .online {
+    position: absolute;
+    right: -8px; top: -5px;
+    display: block;
+    font-size: 14px;
+    background-color: #3D7;
+    width: 40px;
+    height:18px;
+    line-height: 18px;
+    border-radius: 5px;
+    color: #FFF;
+}
+
+#welcome .left table .version {
+    position: absolute;
+    right: 0px; bottom: 0px;
+    display: block;
+    font-size: 10px;
+    text-align: right;
+    padding: 3px;
+    width: 40px;
+    color: #FFF;
+}
+
+#welcome .left .start {
+    color: #FFF;
+    height: 40px;
+    line-height: 40px;
+    width: 200px;
+    background-color: #000;
+    margin: 80px auto;
+    display: block;
+    box-shadow: 0 0 20px rgb(120 120 120 / 70%);
+    transition: all 0.5s;
+}
+
+#welcome .left .start:hover {
+    background-color: #383838;
+    box-shadow: 0 0 20px rgba(120, 120, 120, 50%);
+}
+
+#welcome .button {
+    text-align: center;
+    font-family: SimHei, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#welcome .right { width: 420px; right:0; padding: 12px 6px; }
+#welcome .right .disclaimer, #welcome .right .seo { font-size: 9px; color: #DDD; }
+
+#resolution_tips {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 20px 20px 20px 20px;
+    color: #FFFFFF;
+    font-family: arial;
+    font-size: 48px;
+    height: 120px;
+    left: 50%;
+    line-height: 120px;
+    margin: -60px -150px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 300px;
+    z-index: 1;
+}

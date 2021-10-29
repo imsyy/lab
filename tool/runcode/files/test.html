@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <style>
+        #text {
+            font-family: monospace;
+            font-size: 3rem;
+            color: cyan;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="text">Hello World</div>
+    <script>
+        console.log("[log]");
+        console.warn("[warn]");
+        console.error("[error]");
+        console.info("[info]");
+        console.debug("[debug] This is a very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long sentence");
+        letMeCauseError();
+    </script>
+</body>
+
+</html>

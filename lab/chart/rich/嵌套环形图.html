@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png?_v_=20200710_1">
+        <title>嵌套环形图</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+        <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            var option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    data: ['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        selectedMode: 'single',
+                        radius: [0, '30%'],
+                        label: {
+                            position: 'inner',
+                            fontSize: 14,
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: 1548, name: '搜索引擎' },
+                            { value: 775, name: '直达' },
+                            { value: 679, name: '营销广告', selected: true }
+                        ]
+                    },
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: ['45%', '60%'],
+                        labelLine: {
+                            length: 30,
+                        },
+                        label: {
+                            formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                            backgroundColor: '#F6F8FC',
+                            borderColor: '#8C8D8E',
+                            borderWidth: 1,
+                            borderRadius: 4,
+
+                            rich: {
+                                a: {
+                                    color: '#6E7079',
+                                    lineHeight: 22,
+                                    align: 'center'
+                                },
+                                hr: {
+                                    borderColor: '#8C8D8E',
+                                    width: '100%',
+                                    borderWidth: 1,
+                                    height: 0
+                                },
+                                b: {
+                                    color: '#4C5058',
+                                    fontSize: 14,
+                                    fontWeight: 'bold',
+                                    lineHeight: 33
+                                },
+                                per: {
+                                    color: '#fff',
+                                    backgroundColor: '#4C5058',
+                                    padding: [3, 4],
+                                    borderRadius: 4
+                                }
+                            }
+                        },
+                        data: [
+                            { value: 1048, name: '百度' },
+                            { value: 335, name: '直达' },
+                            { value: 310, name: '邮件营销' },
+                            { value: 251, name: '谷歌' },
+                            { value: 234, name: '联盟广告' },
+                            { value: 147, name: '必应' },
+                            { value: 135, name: '视频广告' },
+                            { value: 102, name: '其他' }
+                        ]
+                    }
+                ]
+            };
+            // 图表结束
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+            function fn() {
+                var height = document.getElementById("container").offsetHeight
+                var width = document.getElementById("container").offsetWidth
+            };
+            fn();
+            window.onresize = function () {
+                fn();
+                myChart.resize();
+            }
+        </script>
+    </body>
+</html>
+    

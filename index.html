@@ -1,0 +1,604 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="author" content="mengkun">
+    <meta name="generator" content="KodCloud">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="description" content="無名的网页实验室用于陈列一些無名小栈的原创作品、收集的一些网页特效，以及其它的好玩的内容">
+    <meta name="keywords" content="無名,無名的网页实验室,無名实验室,無名博客,無名小栈">
+    <title>無名の网页实验室</title>
+    <link href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css" media="screen"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut  icon" href="favicon.ico" type="image/x-icon" />
+    <!--引入SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <!--引入izitoast-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+    <!--维护
+    <script type="text/javascript">
+    window.location.href="/upgrade/";
+    </script>-->
+
+</head>
+
+<body oncontextmenu=self.event.returnValue=false onselectstart="return false">
+    <header class="header">
+        <div id="victor-container">
+            <div id="victor-output"></div>
+        </div>
+        <div class="welcome">
+            <p>— 欢迎来到 —</p>
+            <img class="web-title" src="./htmlimg/web_title.png" alt="" draggable="false">
+        </div>
+        <a class="scroll-down-tips"
+            onclick="$('html, body').animate({scrollTop: $('.header').height()}, '500');return false;">
+            <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+            向下滚动
+        </a>
+    </header>
+    <div class="container">
+        <section class="section">
+            <a name="product"></a>
+            <h3 class="mk-sub-title">
+                <span>My Web</span>
+                <span>/</span>
+                我的站点
+            </h3>
+
+            <p class="mk-title-describe">闲着没事干捣鼓出来的小网站</p>
+
+            <div class="mk-item-box">
+
+                <div class="mk-item">
+                    <a href="https://imsyy.top/" target="_blank">
+                        <article class="mk-color-item color6">
+                            <div class="item-logo">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </div>
+                            <h3>个人主页</h3>
+                            <p>平平无奇的个人主页</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="https://blog.imsyy.top/" target="_blank">
+                        <article class="mk-color-item color3">
+                            <div class="item-logo">
+                                <i class="fa fa-blog" aria-hidden="true"></i>
+                            </div>
+                            <h3>無名小栈</h3>
+                            <p>默默无闻的小博客</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="https://music.imsyy.top/" target="_blank">
+                        <article class="mk-color-item color4">
+                            <div class="item-logo">
+                                <i class="fa fa-music" aria-hidden="true"></i>
+                            </div>
+                            <h3>無名の音乐站</h3>
+                            <p>还算美观的网页播放器</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="https://write.imsyy.top/" target="_blank">
+                        <article class="mk-color-item color1">
+                            <div class="item-logo">
+                                <i class="fab fa-markdown" aria-hidden="true"></i>
+                            </div>
+                            <h3>MD 编辑器</h3>
+                            <p>在线 Markdown 编辑器</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="https://qr.imsyy.top/" target="_blank">
+                        <article class="mk-color-item color2">
+                            <div class="item-logo">
+                                <i class="fa fa-qrcode" aria-hidden="true"></i>
+                            </div>
+                            <h3>二维码生成</h3>
+                            <p>一款参数化二维码生成器</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="https://pan.imsyy.top/" target="_blank">
+                        <article class="mk-color-item color1">
+                            <div class="item-logo">
+                                <i class="fa fa-cloud" aria-hidden="true"></i>
+                            </div>
+                            <h3>無名の资源库</h3>
+                            <p>一个资源文件分享站</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="https://player.imsyy.top/" target="_blank">
+                        <article class="mk-color-item color2">
+                            <div class="item-logo">
+                                <i class="fas fa-turntable" aria-hidden="true"></i>
+                            </div>
+                            <h3>無名の播放器</h3>
+                            <p>又一个漂亮的网页播放器</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="https://status.imsyy.top/" target="_blank">
+                        <article class="mk-color-item color6">
+                            <div class="item-logo">
+                                <i class="fa fa-monitor-heart-rate" aria-hidden="true"></i>
+                            </div>
+                            <h3>站点监测</h3>
+                            <p>监测站点是否可以正常运行</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+            </div> <!-- mk-item-box -->
+
+            <h3 class="mk-sub-title">
+                <span>Tools</span>
+                <span>/</span>
+                网页工具
+            </h3>
+
+            <p class="mk-title-describe">只是一些工具罢了...</p>
+
+            <div class="mk-item-box">
+
+                <div class="mk-item">
+                    <a href="/tool/emoji/" target="_blank">
+                        <article class="mk-color-item color1">
+                            <div class="item-logo">
+                                <i class="fas fa-grin-tongue-wink" aria-hidden="true"></i>
+                            </div>
+                            <h3>Emoji 大全</h3>
+                            <p>非常全面的 Emoji 合集</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="/tool/baidu/" target="_blank">
+                        <article class="mk-color-item color3">
+                            <div class="item-logo">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                            </div>
+                            <h3>帮你百度</h3>
+                            <p>让我帮你百度一下</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="/tool/bullshit/" target="_blank">
+                        <article class="mk-color-item color6">
+                            <div class="item-logo">
+                                <i class="fas fa-poo" aria-hidden="true"></i>
+                            </div>
+                            <h3>狗屁不通生成器</h3>
+                            <p>你写的这是什么玩意</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="tool/screentest/" target="_blank">
+                        <article class="mk-color-item color2">
+                            <div class="item-logo">
+                                <i class="fas fa-desktop" aria-hidden="true"></i>
+                            </div>
+                            <h3>屏幕测试</h3>
+                            <p>你的屏幕是否有缺陷呢</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="/tool/unlock-music/" target="_blank">
+                        <article class="mk-color-item color5">
+                            <div class="item-logo">
+                                <i class="fas fa-waveform" aria-hidden="true"></i>
+                            </div>
+                            <h3>音乐解锁</h3>
+                            <p>在线解锁会员专属音乐</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="/tool/css-loader/" target="_blank">
+                        <article class="mk-color-item color4">
+                            <div class="item-logo">
+                                <i class="fad fa-spinner-third" aria-hidden="true"></i>
+                            </div>
+                            <h3>CSS3 加载动画</h3>
+                            <p>一套可自定义的加载动画</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color3">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color1">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+            </div> <!-- mk-item-box -->
+
+
+
+
+            <h3 class="mk-sub-title">
+                <span>Game</span>
+                <span>/</span>
+                游戏
+            </h3>
+
+            <p class="mk-title-describe">玩会游戏，放松一下</p>
+
+            <div class="mk-item-box">
+
+                <div class="mk-item">
+                    <a href="/game/hacker/" target="_blank">
+                        <article class="mk-color-item color6">
+                            <div class="item-logo">
+                                <i class="fa fa-bug" aria-hidden="true"></i>
+                            </div>
+                            <h3>Hacker</h3>
+                            <p>啊！你的电脑被黑了</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="/game/tetris/" target="_blank">
+                        <article class="mk-color-item color5">
+                            <div class="item-logo">
+                                <i class="fas fa-cubes" aria-hidden="true"></i>
+                            </div>
+                            <h3>俄罗斯方块</h3>
+                            <p>来挑战你的最高分吧</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="/game/chess/" target="_blank">
+                        <article class="mk-color-item color4">
+                            <div class="item-logo">
+                                <i class="fas fa-chess-rook-alt" aria-hidden="true"></i>
+                            </div>
+                            <h3>国际象棋</h3>
+                            <p>这个 AI 不太聪明</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a href="/game/2048/" target="_blank">
+                        <article class="mk-color-item color2">
+                            <div class="item-logo">
+                                <i class="fas fa-game-board" aria-hidden="true"></i>
+                            </div>
+                            <h3>2048</h3>
+                            <p>一个经典的小游戏</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+            </div> <!-- mk-item-box -->
+
+
+
+            <h3 class="mk-sub-title">
+                <span>More</span>
+                <span>/</span>
+                其它
+            </h3>
+
+            <p class="mk-title-describe">其余的一些好玩的东东</p>
+
+            <div class="mk-item-box">
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color2">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color6">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color3">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color1">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color5">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color3">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color4">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+                <div class="mk-item">
+                    <a onclick="update()" target="_blank">
+                        <article class="mk-color-item color2">
+                            <div class="item-logo">
+                                <i class="fad fa-tools" aria-hidden="true"></i>
+                            </div>
+                            <h3>待添加</h3>
+                            <p>待添加</p>
+                            <i class="light"></i>
+                        </article>
+                    </a>
+                </div> <!-- mk-item -->
+
+
+            </div> <!-- mk-item-box -->
+
+        </section> <!--  class="section" -->
+
+        <h3 class="mk-sub-title">
+            <span>About</span>
+            <span>/</span>
+            关于
+        </h3>
+        <p class="mk-title-describe">这里是关于我的信息</p>
+
+        <div class="about-content">
+            <p>本站用来陈列一些新鲜、好玩的 Html 作品。这些作品中，有一些是本人原创或改写的，
+                还有一些是别人的开源大作，但因其很有特色，值得学习玩味，因此也出现在这里。</p>
+            <p>本站样式来源自 <a href="http://lab.mkblog.cn/" target="_blank">孟坤 Web 实验室</a> 并做出了些许修改。
+                此「 实验室 」中的大部分作品是开源的，即使没有开源，您也可以通过查看源代码以进行查阅。请注意，开源不代表可以滥用，转载或使用这些源代码时，请务必保留原始的版权信息！
+                这是一个程序员最基本的修养，也是对原作者最起码的尊重。</p>
+            <p>更多内容，请访问我的 <a href="https://imsyy.top" target="_blank">个人主页</a> 或 <a href="https://blog.imsyy.top"
+                    target="_blank">个人博客</a>。</p>
+        </div>
+        </section>
+
+    </div> <!-- class=container -->
+
+    <footer class="footer">
+        <div class="web-record">
+            <a href="https://imsyy.top/" target="_blank" rel="nofollow">
+                Copyright © 2020
+                <script>document.write(' - ' + (new Date()).getFullYear())</script> 無名
+            </a>
+        </div>
+    </footer>
+
+    <!-- 返回顶部 -->
+    <div class="mk-uptop" title="""></div>
+
+<!-- jq -->
+<script src=" ./javascript/jquery.min.js">
+</script>
+        <script src="./javascript/vector.js"></script>
+
+        <script>
+            $(function () {
+                // 页面加载完毕后固定页头高度，防止在某些自动隐藏工具栏的移动浏览器上出现页面抖动现象
+                $(".header").height($(window).height());
+
+                // 初始化 传入dom id
+                var victor = new Victor("victor-container", "victor-output");
+                var theme = [
+                    ["#002c4a", "#005584"],
+                    ["#35ac03", "#3f4303"],
+                    ["#ac0908", "#cd5726"],
+                    ["#18bbff", "#00486b"]
+                ];
+                var color = theme[fRandomBy(0, 3)];
+                victor(color).set();
+
+                // 监听滚动变化
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() < 300) {
+                        $(".mk-uptop").removeClass("show");
+                    } else {
+                        $(".mk-uptop").addClass("show");
+                    }
+                });
+
+                // 返回顶部
+                $(".mk-uptop").click(function () {
+                    $("html, body").animate({ scrollTop: 0 }, "normal");
+                    return false;
+                });
+
+                // 烦人的 CNZZ，输出一大堆错误信息、、清除掉！	
+                console.clear();
+
+                console.log('background: #EFEEEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat; text-shadow: 5px -5px black, 4px -4px white;  font-weight: bold;  -webkit-text-fill-color: transparent;  -webkit-background-clip: text;');
+            });
+
+
+            /*******************************
+             * 函数名：生成指定范围的随机数
+             * 输入：  (under)下限   (over)上限
+             * 输出： 所需要的数值
+             *******************************/
+            function fRandomBy(under, over) {
+                switch (arguments.length) {
+                    case 1: return parseInt(Math.random() * under + 1);
+                    case 2: return parseInt(Math.random() * (over - under + 1) + under);
+                    default: return 0;
+                }
+            }
+        </script>
+        <!--SweetAlert弹窗-->
+        <script>
+            let timerInterval
+            Swal.fire({
+                icon: 'info',
+                title: '维护通知',
+                text: '本站维护更新中，敬请期待',
+                html:
+                    '本站维护更新中，敬请期待<br><br>' +
+                    '本窗口将在 <b></b> 毫秒后关闭',
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    timerInterval = setInterval(() => {
+                        const content = Swal.getContent()
+                        if (content) {
+                            const b = content.querySelector('b')
+                            if (b) {
+                                b.textContent = Swal.getTimerLeft()
+                            }
+                        }
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+        </script>
+        <!--引入izitoast-->
+        <script>
+            function update() {
+                iziToast.info({
+                    position: 'topRight',
+                    backgroundColor: '#efefef',
+                    title: '内容待添加',
+                    message: '说不定哪天就有了呢 ~'
+                });
+            }
+        </script>
+</body>
+
+</html>

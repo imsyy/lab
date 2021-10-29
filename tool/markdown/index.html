@@ -1,0 +1,757 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<title>在线 MarkDown 编辑器</title>
+	<meta content="Markdown, Online, Emoji, HTML to Markdown, Markdown to PDF, Markdown to 图片, 编辑器, 在线, 流程图, 支持移动端, 滚动同步定位" name="keywords">
+	<meta content="一款在线 Markdown 编辑器，轻量且强大。支持绘制流程图、时序图、任务列表，可导出 MD、 HTML 等文件。" name="description">
+	<link rel="stylesheet" href="css/editormd.min.css" />
+	<link href="image/favicon.png" rel="icon" type="image/png" sizes="32x32">
+	<style>
+		html, body {
+			overflow: hidden;
+		}
+
+		html, body, #test-editormd {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="md-tpl">
+## 在线 MarkDown 编辑器
+
+Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。
+
+Markdown 语言在 2004 年由约翰·格鲁伯（ John Gruber ）创建。
+
+Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。
+
+Markdown 编写的文档后缀为 `.md` 或 `.markdown`。
+
+## 主要特性
+
+- 支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；
+- 支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；
+- 支持ToC（Table of Contents）、Emoji表情、Task lists、@链接等Markdown扩展语法；
+- 支持TeX科学公式（基于KaTeX）、流程图 Flowchart 和 时序图 Sequence Diagram;
+- 支持识别和解析HTML标签，并且支持自定义过滤标签解析，具有可靠的安全性和几乎无限的扩展性；
+- 支持 AMD / CMD 模块化加载（支持 Require.js & Sea.js），并且支持自定义扩展插件；
+- 兼容主流的浏览器（IE8+）和Zepto.js，且支持iPad等平板设备；
+
+## MarkDown 效果及格式示例
+
+**目录 (Table of Contents)**
+
+[TOCM]
+
+[TOC]
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+# Heading 1 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+## Heading 2 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+### Heading 3 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+#### Heading 4 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+##### Heading 5 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+###### Heading 6 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+
+#### 标题（用底线的形式）Heading (underline)
+
+This is an H1
+=============
+
+This is an H2
+-------------
+
+### 字符效果和横线等
+                
+----
+
+~~删除线~~ <s>删除线（开启识别HTML标签时）</s>
+*斜体字*      _斜体字_
+**粗体**  __粗体__
+***粗斜体*** ___粗斜体___
+
+上标：X<sub>2</sub>，下标：O<sup>2</sup>
+
+**缩写(同HTML的abbr标签)**
+
+> 即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启
+
+The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.
+
+### 引用 Blockquotes
+
+> 引用文本 Blockquotes
+
+引用的行内混合 Blockquotes
+                    
+> 引用：如果想要插入空白换行`即<br />标签`，在插入处先键入两个以上的空格然后回车即可，[普通链接](https://all.imsyy.top/tool/markdown/)。
+
+### 锚点与链接 Links
+
+[普通链接](https://all.imsyy.top/tool/markdown/)
+
+[普通链接带标题](https://all.imsyy.top/tool/markdown/"普通链接带标题")
+
+直接链接：<https: //all.imsyy.top/tool/markdown />
+
+[锚点链接][anchor-id]
+
+[anchor-id]: https://all.imsyy.top/tool/markdown/
+
+[mailto:one@imsyy.top](mailto:one@imsyy.top)
+
+邮箱地址自动链接 one@imsyy.top
+
+
+### 多语言代码高亮 Codes
+
+#### 行内代码 Inline code
+
+执行命令：`npm install marked`
+
+#### 缩进风格
+
+即缩进四个空格，也做为实现类似 `
+	<pre>
+                    ` 预格式化文本 ( Preformatted Text ) 的功能。
+
+    
+                    <?php
+                    echo "Hello world!";
+    ?>
+                    预格式化文本：
+
+    | First Header  | Second Header |
+    | ------------- | ------------- |
+    | Content Cell  | Content Cell  |
+    | Content Cell  | Content Cell  |
+
+#### JS代码
+
+```javascript
+function test() {
+    console.log("Hello world!");
+}
+
+(function(){
+    var box = function() {
+        return box.fn.init();
+    };
+
+    box.prototype = box.fn = {
+        init : function(){
+            console.log('box.init()');
+
+            return this;
+        },
+
+        add : function(str) {
+            alert("add", str);
+
+            return this;
+        },
+
+        remove : function(str) {
+            alert("remove", str);
+
+            return this;
+        }
+    };
+
+    box.fn.init.prototype = box.fn;
+
+    window.box =box;
+})();
+
+var testBox = box();
+testBox.add("jQuery").remove("jQuery");
+```
+
+#### HTML 代码 HTML codes
+
+```html
+
+	<!DOCTYPE html>
+
+	<html>
+	<head>
+	<mate charest="utf-8" />
+
+	<meta name="keywords" content="Editor.md, Markdown, Editor" />
+
+	<title>Hello world!</title>
+	<style type="text/css">
+		body {
+			font-size: 14px;
+			color: #444;
+			font-family: "Microsoft Yahei", Tahoma, "Hiragino Sans GB", Arial;
+			background: #fff;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		img {
+			border: none;
+			vertical-align: middle;
+		}
+</style>
+</head>
+	<body>
+	<h1 class="text-xxl">Hello world!</h1>
+	<p class="text-green">Plain text</p>
+	</body>
+</html>
+```
+
+### 图片 Images
+
+Image:
+
+![](https://pandao.github.io/editor.md/examples/images/4.jpg)
+
+> Follow your heart.
+
+![](https://pandao.github.io/editor.md/examples/images/8.jpg)
+
+> 图为：厦门白城沙滩
+
+图片加链接 (Image + Link)：
+
+[![](https://pandao.github.io/editor.md/examples/images/7.jpg)](https://pandao.github.io/editor.md/images/7.jpg "李健首张专辑《似水流年》封面")
+
+> 图为：李健首张专辑《似水流年》封面
+
+----
+
+### 列表 Lists
+
+#### 无序列表（减号）Unordered Lists (-)
+
+- 列表一
+- 列表二
+- 列表三
+
+#### 无序列表（星号）Unordered Lists (*)
+
+* 列表一
+* 列表二
+* 列表三
+
+#### 无序列表（加号和嵌套）Unordered Lists (+)
+
++ 列表一
++ 列表二
+    + 列表二-1
+    + 列表二-2
+    + 列表二-3
++ 列表三
+    * 列表一
+    * 列表二
+    * 列表三
+
+#### 有序列表 Ordered Lists (-)
+
+1. 第一行
+2. 第二行
+3. 第三行
+
+#### GFM task list
+
+- [x] GFM task list 1
+- [x] GFM task list 2
+- [ ] GFM task list 3
+    - [ ] GFM task list 3-1
+    - [ ] GFM task list 3-2
+    - [ ] GFM task list 3-3
+- [ ] GFM task list 4
+    - [ ] GFM task list 4-1
+    - [ ] GFM task list 4-2
+
+----
+
+### 绘制表格 Tables
+
+| 项目        | 价格   |  数量  |
+| --------   | -----:  | :----:  |
+| 计算机      | $1600   |   5     |
+| 手机        |   $12   |   12   |
+| 管线        |    $1    |  234  |
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell 
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+| Function name | Description                    |
+| ------------- | ------------------------------ |
+| `help()`      | Display the help window.       |
+| `destroy()`   | **Destroy your computer!**     |
+
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
+
+| Item      | Value |
+| --------- | -----:|
+| Computer  | $1600 |
+| Phone     |   $12 |
+| Pipe      |    $1 |
+
+----
+
+#### 特殊符号 HTML Entities Codes
+
+© &¨ ™ ¡ £
+&<>¥ € ® ± ¶ § ¦ ¯ « · 
+
+X² Y³ ¾ ¼  ×  ÷   »
+
+18ºC  "  '
+
+[========]
+
+#### 反斜杠 Escape
+
+\*literal asterisks\*
+
+[========]
+
+### 科学公式 TeX(KaTeX)
+
+$$E=mc^2$$
+
+行内的公式$$E=mc^2$$行内的公式，行内的$$E=mc^2$$公式。
+
+$$x > y$$
+
+$$\(\sqrt{3x-1}+(1+x)^2\)$$
+
+$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
+
+多行公式：
+
+```math
+\displaystyle
+\left( \sum\_{k=1}^n a\_k b\_k \right)^2
+\leq
+\left( \sum\_{k=1}^n a\_k^2 \right)
+\left( \sum\_{k=1}^n b\_k^2 \right)
+```
+
+```katex
+\displaystyle 
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        } 
+    }
+```
+
+```latex
+f(x) = \int_{-\infty}^\infty
+    \hat f(\xi)\,e^{2 \pi i \xi x}
+    \,d\xi
+```
+
+### 分页符 Page break
+
+> Print Test: Ctrl + P
+
+[========]
+
+### 绘制流程图 Flowchart
+
+```flow
+st=>start: 用户登陆
+op=>operation: 登陆操作
+cond=>condition: 登陆成功 Yes or No?
+e=>end: 进入后台
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
+
+[========]
+
+### 绘制序列图 Sequence Diagram
+
+```seq
+Andrew->China: Says Hello 
+Note right of China: China thinks\nabout it 
+China-->Andrew: How are you? 
+Andrew->>China: I am good thanks!
+```
+
+### 结束
+</textarea>
+	<div id="test-editormd"></div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/editormd.min.js"></script>
+	<script>
+		(function (a, b) {
+			if ("function" == typeof define && define.amd)
+				define([], b);
+			else if ("undefined" != typeof exports)
+				b();
+			else {
+				b(),
+					a.FileSaver = {
+						exports: {}
+					}.exports
+			}
+		}
+		)(this, function () {
+			"use strict";
+			function b(a, b) {
+				return "undefined" == typeof b ? b = {
+					autoBom: !1
+				} : "object" != typeof b && (console.warn("Depricated: Expected third argument to be a object"),
+					b = {
+						autoBom: !b
+					}),
+					b.autoBom && /^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type) ? new Blob(["\uFEFF", a], {
+						type: a.type
+					}) : a
+			}
+			function c(b, c, d) {
+				var e = new XMLHttpRequest;
+				e.open("GET", b),
+					e.responseType = "blob",
+					e.onload = function () {
+						a(e.response, c, d)
+					}
+					,
+					e.onerror = function () {
+						console.error("could not download file")
+					}
+					,
+					e.send()
+			}
+			function d(a) {
+				var b = new XMLHttpRequest;
+				return b.open("HEAD", a, !1),
+					b.send(),
+					200 <= b.status && 299 >= b.status
+			}
+			function e(a) {
+				try {
+					a.dispatchEvent(new MouseEvent("click"))
+				} catch (c) {
+					var b = document.createEvent("MouseEvents");
+					b.initMouseEvent("click", !0, !0, window, 0, 0, 0, 80, 20, !1, !1, !1, !1, 0, null),
+						a.dispatchEvent(b)
+				}
+			}
+			var f = "object" == typeof window && window.window === window ? window : "object" == typeof self && self.self === self ? self : "object" == typeof global && global.global === global ? global : void 0
+				, a = f.saveAs || ("object" != typeof window || window !== f ? function () { }
+					: "download" in HTMLAnchorElement.prototype ? function (b, g, h) {
+						var i = f.URL || f.webkitURL
+							, j = document.createElement("a");
+						g = g || b.name || "download",
+							j.download = g,
+							j.rel = "noopener",
+							"string" == typeof b ? (j.href = b,
+								j.origin === location.origin ? e(j) : d(j.href) ? c(b, g, h) : e(j, j.target = "_blank")) : (j.href = i.createObjectURL(b),
+									setTimeout(function () {
+										i.revokeObjectURL(j.href)
+									}, 4E4),
+									setTimeout(function () {
+										e(j)
+									}, 0))
+					}
+						: "msSaveOrOpenBlob" in navigator ? function (f, g, h) {
+							if (g = g || f.name || "download",
+								"string" != typeof f)
+								navigator.msSaveOrOpenBlob(b(f, h), g);
+							else if (d(f))
+								c(f, g, h);
+							else {
+								var i = document.createElement("a");
+								i.href = f,
+									i.target = "_blank",
+									setTimeout(function () {
+										e(i)
+									})
+							}
+						}
+							: function (a, b, d, e) {
+								if (e = e || open("", "_blank"),
+									e && (e.document.title = e.document.body.innerText = "downloading..."),
+									"string" == typeof a)
+									return c(a, b, d);
+								var g = "application/octet-stream" === a.type
+									, h = /constructor/i.test(f.HTMLElement) || f.safari
+									, i = /CriOS\/[\d]+/.test(navigator.userAgent);
+								if ((i || g && h) && "object" == typeof FileReader) {
+									var j = new FileReader;
+									j.onloadend = function () {
+										var a = j.result;
+										a = i ? a : a.replace(/^data:[^;]*;/, "data:attachment/file;"),
+											e ? e.location.href = a : location = a,
+											e = null
+									}
+										,
+										j.readAsDataURL(a)
+								} else {
+									var k = f.URL || f.webkitURL
+										, l = k.createObjectURL(a);
+									e ? e.location = l : location.href = l,
+										e = null,
+										setTimeout(function () {
+											k.revokeObjectURL(l)
+										}, 4E4)
+								}
+							}
+				);
+			f.saveAs = a.saveAs = a,
+				"undefined" != typeof module && (module.exports = a)
+		});
+	</script>
+	<script type="text" id="html-output-tpl">
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<head><title>{{title}}</title>
+</head>
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/pandao/editor.md@1.5.0/css/editormd.min.css">
+<style type="text/css">
+	body{
+		font-family:"Helvetica Neue","Helvetica","Microsoft Yahei","微软雅黑","Lantinghei SC","STXihei","WenQuanYi Micro Hei",Arial,sans-serif;
+		text-align:justify;margin:auto;font-size:14px;line-height:1.6em;
+		color:#333;background:#fefefe;padding:15px;margin:30px auto;position: relative;
+		-webkit-font-smoothing: antialiased;font-smoothing: antialiased;
+	}
+
+	article,footer,header,nav{margin:0 auto}
+	article{margin-top:4em;margin-bottom:4em;min-height:400px}
+	footer{margin-bottom:50px}
+	video{margin:2em 0;border:1px solid #ddd}
+	nav{font-size:.9em;font-style:italic;border-bottom:1px solid #ddd;padding:1em 0}
+	nav p{margin:0}
+	details{margin: 15px 0;}
+	summary{cursor:pointer;padding: 4px;}
+	summary:focus{outline: none;box-shadow: 0 0 3px #2196F3;}
+	.h1,h1{font-size:2.2em;}
+	.h2,h2{font-size:1.9em;}
+	.h3,h3{font-size:1.6em;}
+	.h4,h4{font-size:1.3em;}
+	.h5,h5{font-size:1.2em;}
+	.h6,h6{font-size:1.1em;}
+	.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{
+		font-family:inherit;font-weight:500;color: #333;
+		line-height: 1.2em;padding: 0.3em 0;margin: 0.8em 0 0.4em 0;
+		word-break: break-all;
+	}
+	.h1,h1{letter-spacing: 1px;border-bottom: 1px solid #ddd;}
+	.h2,h2{padding-bottom: 0.15em;}
+	p{-webkit-hypens:auto;-moz-hypens:auto;hyphens:auto;margin:10px 0;}
+	p,li,div,ul{word-wrap: break-all;}
+	blockquote{margin-left:1em;padding:10px 15px;margin:10px 0 20px 0;border-left:10px solid #ddd;background: #f6f6f6;}
+	blockquote p{margin:0;font-weight:400;}
+	pre{display:block;padding:0;overflow:auto;margin:0 0 10px;font-size:1em;line-height:1.42857143;
+		word-break:break-all;word-wrap:break-word;color:#333;background:none;border-radius:4px}
+	code,kbd,pre,samp{
+		font-family:Consolas,'Liberation Mono','Ubuntu Mono',Menlo,Courier,sans-serif;
+	}
+	a{color:#1980e6;text-decoration:none}
+	a:hover{text-decoration:underline}
+	a img{border:none}
+	img{max-width: 100%;}
+	h1 a,h1 a:hover{text-decoration:none}
+	hr{border: 0 none;height: 4px;margin:1.2em 0;
+	    background: rgba(0, 0, 0, 0) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+	}
+	@media screen and (min-width: 900px) {
+		body {width: 900px;}
+	}
+	ul,ol{padding:0.2em 0 0.2em 2em;}
+	table {border-collapse: collapse;border-spacing: 0;margin-bottom: 20px;}
+	table thead{background: #eee;}
+	table td,table th{padding: .5em;border: 1px solid #ddd;line-height: 1.5;}
+	.markdown-flow{background:#fff;padding: 15px;}
+	.markdown-flow .label{color:#444;}
+	.markdown-latex {
+		text-align: center;font-size:1.3em;color: #000;
+		margin-bottom: 1.5em;overflow: hidden;overflow-x:auto;
+	}
+	.latex-inline .katex-display{display:inline-block;font-size: 0.8em;}
+	.markdown-menu ul{padding:0 10px 20px 20px;}
+	.markdown-menu li{
+		font-size:14px;list-style:none;
+		line-height:1.8em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+	}
+	.markdown-menu-h2{padding-left:2em;}
+	.markdown-menu-h3{padding-left:4em;}
+	.markdown-menu-h4{padding-left:6em;}
+	.markdown-menu-h5{padding-left:8em;}
+	.markdown-menu-h6{padding-left:10em;}
+
+	.print-btn{
+		position:absolute;padding:4px 20px;color:#444;font-size:1em;
+		background:#eee;background:rgba(200,200,200,0.2);margin-top: -45px;right:15px;
+	}
+	.print-btn:hover{text-decoration: none;background: #14a2ff;color: #fff;}
+
+	.hidden{display:none !important;}
+
+	/*打印样式*/
+	@media print {
+		body{padding:0 1.5cm;margin:0 auto 10px auto;font-size:13px;}
+		.print-btn{display: none;}
+	}
+
+	ol.linenums {
+	    padding-left: 2.5em;
+	}
+	ol.linenums li {
+	    list-style-type: decimal!important;
+	}
+</style>
+<body>
+<a href="javascript:window.print();" class="print-btn">打印(Print)</a>
+<!-- MarkDown Content -->
+
+{{content}}
+
+<!-- /MarkDown Content -->
+</body>
+<html>
+
+	</script>
+	<script type="text/javascript">
+		var testEditor;
+		$(function () {
+			var mdContent = $("#md-tpl").text();
+			$("#md-tpl").hide();
+			testEditor = editormd("test-editormd", {
+				path: 'lib/',
+				editorTheme: "default",
+				markdown: mdContent,
+				codeFold: true,
+				saveHTMLToTextarea: true,
+				searchReplace: true,
+				htmlDecode: "style,script,iframe|on*",
+				emoji: false,
+				taskList: true,
+				tocm: true,
+				tex: true,
+				flowChart: true,
+				sequenceDiagram: true,
+				imageUpload: false,
+				imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+				imageUploadURL: "./php/upload.php",
+				onload: function () {
+					var keyMap = {
+						"Ctrl-S": function (cm) {
+							saveMD();
+						},
+					};
+					this.addKeyMap(keyMap);
+				},
+				toolbarIcons: function () {
+					return ["save", "saveHTML", "HTMLCode", "|", "undo", "redo", "|", "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|", "h1", "h2", "h3", "h4", "h5", "h6", "|", "list-ul", "list-ol", "hr", "|", "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "pagebreak", "|", "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|", "help", "info"];
+				},
+				toolbarIconsClass: {
+					save: "fa-save",
+					saveHTML: "fa-html5",
+					HTMLCode: "fa-code-fork",
+				},
+				toolbarHandlers: {
+					save: function (cm, icon, cursor, selection) {
+						saveMD();
+					},
+					saveHTML: function (cm, icon, cursor, selection) {
+						saveHTML();
+					},
+					HTMLCode: function (cm, icon, cursor, selection) {
+						this.executePlugin("htmlCodeDialog", "html-code-dialog/html-code-dialog");
+					},
+				},
+				lang: {
+					toolbar: {
+						save: "保存",
+						saveHTML: "保存为 HTML 文件",
+						HTMLCode: "查看 HTML 代码",
+					}
+				},
+				onfullscreen: function () {
+					var element = document.documentElement;
+					if (element.requestFullscreen) {
+						element.requestFullscreen();
+					} else if (element.msRequestFullscreen) {
+						element.msRequestFullscreen();
+					} else if (element.mozRequestFullScreen) {
+						element.mozRequestFullScreen();
+					} else if (element.webkitRequestFullscreen) {
+						element.webkitRequestFullscreen();
+					}
+				},
+				onfullscreenExit: function () {
+					if (document.exitFullscreen) {
+						document.exitFullscreen();
+					} else if (document.msExitFullscreen) {
+						document.msExitFullscreen();
+					} else if (document.mozCancelFullScreen) {
+						document.mozCancelFullScreen();
+					} else if (document.webkitExitFullscreen) {
+						document.webkitExitFullscreen();
+					}
+				}
+			});
+			function saveMD() {
+				var md = testEditor.getMarkdown();
+				var html = testEditor.getHTML();
+				var blob = new Blob([md], {
+					type: "text/plain;charset=utf-8"
+				});
+				saveAs(blob, "MarkDown.md");
+			}
+			function saveHTML() {
+				var md = testEditor.getMarkdown();
+				var html = testEditor.getHTML();
+				html = $(".editormd-preview-container").eq(0).html();
+				var blob = new Blob([getHTMLOutput()], {
+					type: "text/plain;charset=utf-8"
+				});
+				saveAs(blob, "MarkDown.html");
+			}
+			window.getHTMLOutput = function () {
+				var htmlTPL = $("#html-output-tpl").html();
+				htmlTPL = htmlTPL.replace(/\{\{title\}\}/g, "MarkDown");
+				htmlTPL = htmlTPL.replace(/\{\{content\}\}/g, $(".editormd-preview-container").eq(0).html());
+				return htmlTPL;
+			}
+				;
+		});
+	</script>
+</body>
+</html>

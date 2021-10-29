@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>margin 塌陷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            margin-top: 200px;
+            height: 200px;
+            width: 200px;
+            background-color: #00ffff;
+        }
+
+        .son {
+            margin-top: 300px; /* Here */
+            height: 100px;
+            width: 100px;
+            background-color: #aaffaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

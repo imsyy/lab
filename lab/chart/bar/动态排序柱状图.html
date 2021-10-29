@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png?_v_=20200710_1">
+        <title>动态排序柱状图</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+        <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            var data = [];
+            for (let i = 0; i < 5; ++i) {
+                data.push(Math.round(Math.random() * 200));
+            }
+
+            var option = {
+                xAxis: {
+                    max: 'dataMax',
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['A', 'B', 'C', 'D', 'E'],
+                    inverse: true,
+                    animationDuration: 300,
+                    animationDurationUpdate: 300,
+                    max: 2 // only the largest 3 bars will be displayed
+                },
+                series: [{
+                    realtimeSort: true,
+                    name: 'X',
+                    type: 'bar',
+                    data: data,
+                    label: {
+                        show: true,
+                        position: 'right',
+                        valueAnimation: true
+                    }
+                }],
+                legend: {
+                    show: true
+                },
+                animationDuration: 0,
+                animationDurationUpdate: 3000,
+                animationEasing: 'linear',
+                animationEasingUpdate: 'linear'
+            };
+
+            function run() {
+                var data = option.series[0].data;
+                for (var i = 0; i < data.length; ++i) {
+                    if (Math.random() > 0.9) {
+                        data[i] += Math.round(Math.random() * 2000);
+                    }
+                    else {
+                        data[i] += Math.round(Math.random() * 200);
+                    }
+                }
+                myChart.setOption(option);
+            }
+
+            setTimeout(function () {
+                run();
+            }, 0);
+            setInterval(function () {
+                run();
+            }, 3000);
+            // 图表结束
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+            function fn() {
+                var height = document.getElementById("container").offsetHeight
+                var width = document.getElementById("container").offsetWidth
+            };
+            fn();
+            window.onresize = function () {
+                fn();
+                myChart.resize();
+            }
+        </script>
+    </body>
+</html>
+    

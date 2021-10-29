@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png?_v_=20200710_1">
+        <title>联动和共享数据集</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+        <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            setTimeout(function () {
+
+                option = {
+                    legend: {},
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: false
+                    },
+                    dataset: {
+                        source: [
+                            ['product', '2015', '2016', '2017', '2018', '2019', '2020'],
+                            ['奶茶', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
+                            ['抹茶拿铁', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
+                            ['奶酪可可', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
+                            ['核桃仁布朗尼', 25.2, 37.1, 41.2, 18, 33.9, 49.1]
+                        ]
+                    },
+                    xAxis: { type: 'category' },
+                    yAxis: { gridIndex: 0 },
+                    grid: { top: '55%' },
+                    series: [
+                        { type: 'line', smooth: true, seriesLayoutBy: 'row', emphasis: { focus: 'series' } },
+                        { type: 'line', smooth: true, seriesLayoutBy: 'row', emphasis: { focus: 'series' } },
+                        { type: 'line', smooth: true, seriesLayoutBy: 'row', emphasis: { focus: 'series' } },
+                        { type: 'line', smooth: true, seriesLayoutBy: 'row', emphasis: { focus: 'series' } },
+                        {
+                            type: 'pie',
+                            id: 'pie',
+                            radius: '30%',
+                            center: ['50%', '25%'],
+                            emphasis: { focus: 'data' },
+                            label: {
+                                formatter: '{b}: {@2015} ({d}%)'
+                            },
+                            encode: {
+                                itemName: 'product',
+                                value: '2015',
+                                tooltip: '2015'
+                            }
+                        }
+                    ]
+                };
+
+                myChart.on('updateAxisPointer', function (event) {
+                    var xAxisInfo = event.axesInfo[0];
+                    if (xAxisInfo) {
+                        var dimension = xAxisInfo.value + 1;
+                        myChart.setOption({
+                            series: {
+                                id: 'pie',
+                                label: {
+                                    formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                                },
+                                encode: {
+                                    value: dimension,
+                                    tooltip: dimension
+                                }
+                            }
+                        });
+                    }
+                });
+
+                myChart.setOption(option);
+
+            });
+            // 图表结束
+            if (option && typeof option === 'object') {
+                myChart.setOption(option);
+            }
+            function fn() {
+                var height = document.getElementById("container").offsetHeight
+                var width = document.getElementById("container").offsetWidth
+            };
+            fn();
+            window.onresize = function () {
+                fn();
+                myChart.resize();
+            }
+        </script>
+    </body>
+</html>
+    
