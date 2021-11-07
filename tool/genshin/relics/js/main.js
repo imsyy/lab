@@ -592,6 +592,32 @@ function userobject(name) {
             }
             this.mode = 15
             break;
+        case "荒泷一斗":
+            this.lv80a = {
+                baseHP: 12740,
+                baseDEF: 865,
+                baseATK: 178
+            }, this.lv90 = {
+                baseHP: 13703,
+                baseDEF: 930,
+                baseATK: 191
+            }
+            this.mode = 7
+            this.Etype = 6
+            break;
+        case "五郎":
+            this.lv80a = {
+                baseHP: 8907,
+                baseDEF: 603,
+                baseATK: 170
+            }, this.lv90 = {
+                baseHP: 9570,
+                baseDEF: 648,
+                baseATK: 183
+            }
+            this.mode = 7
+            this.Etype = 6
+            break;
         default:
             break;
     }
@@ -677,6 +703,23 @@ function SetChar(mtype) {
     }
     if (mtype == 2) {
         Load()
+        var it = [
+            '<select id="Weapon" onchange="SetWeapon()" class="form-select"><option value="0">快速选择武器</option><option value="674">天空之翼</option><option value="608">阿莫斯/冬极/飞雷/终末</option><option value="565">祭礼/暗巷/黑岩</option><option value="510">弓藏/幽夜/风花/绝弦/月卡/宗室/试作</option><option value="454">西风/钢轮弓/破魔弓</option></select>',
+            '<select id="Weapon" onchange="SetWeapon()" class="form-select"><option value="0">快速选择武器</option><option value="674">天空之卷</option><option value="608">尘锁/四风/月华</option><option value="565">宗室/白辰/万国/暗巷</option><option value="510">黑岩/试作/忍冬/匣里/西风</option><option value="454">祭礼/嘟嘟可/昭心</option></select>',
+            '<select id="Weapon" onchange="SetWeapon()" class="form-select"><option value="0">快速选择武器</option><option value="674">和璞鸢/天空之脊</option><option value="608">薙草/贯虹/护摩</option><option value="565">宗室/十文字/西风/千岩/流月针</option><option value="510">黑岩/试作/渔获</option><option value="454">决斗/龙脊/匣里</option></select>',
+            '<select id="Weapon" onchange="SetWeapon()" class="form-select"><option value="0">快速选择武器</option><option value="741">松籁响起之时</option><option value="674">天空之傲</option><option value="608">无工/狼末</option><option value="565">宗室/祭礼/雪葬/试作</option><option value="510">雨裁/白影/黑岩/螭骨/桂木/千岩/恶王</option><option value="454">西风/衔珠海皇</option></select>',
+            '<select id="Weapon" onchange="SetWeapon()" class="form-select"><option value="0">快速选择武器</option><option value="674">风鹰剑/雾切</option><option value="608">斫峰/苍古/天空</option><option value="542">磐岩结绿</option><option value="620">暗巷闪光</option><option value="565">试作/黑岩</option><option value="510">腐殖/黑剑/宗室/铁蜂刺/匣里</option><option value="454">天目影打刀/祭礼/西风</option></select>'
+        ];
+        var it2 = [' 宵宫 安柏 达达利亚 迪奥娜 菲谢尔 甘雨 九条裟罗 埃洛伊 温迪 五郎 ', ' 芭芭拉 可莉 丽莎 莫娜 凝光 砂糖 烟绯 珊瑚宫心海 ',
+            ' 魈 雷电将军 胡桃 罗莎莉亚 香菱 钟离 托马 ', ' 北斗 迪卢克 雷泽 诺艾尔 优菈 早柚 重云 辛焱 荒泷一斗 ',
+            ' 阿贝多 神里绫华 班尼特 凯亚 刻晴 枫原万叶 七七 琴 行秋 风旅行者 岩旅行者 雷旅行者 '
+        ];
+        for (var i = 0; i <= 4; i++) {
+            if (it2[i].indexOf(" " + document.getElementById('Char').value + " ") >= 0) {
+                document.getElementById('WeaponList').innerHTML = it[i]
+                break;
+            }
+        }
     }
 
 
@@ -796,7 +839,7 @@ function SetChar(mtype) {
             res1 = res1 + "<p><span class='badge bg-primary' style='font-size: 0.85rem;font-weight: normal;'>攻生精双爆（ 攻击0.4折算 ）</span> 共 <font size='4'><strong>" + (r[0] + r[3] + r[5] + r[6] + r[1] * 0.4).toFixed(1)
                 .toString() + " </strong></font>有效词条</p>"
             break;
-        case 7: //诺艾尔
+        case 7: //诺艾尔或五郎或一斗
             res1 = res1 + "<p><span class='badge bg-primary' style='font-size: 0.85rem;font-weight: normal;'>防双爆</span> 共 <font size='4'><strong>" + (r[2] + r[6] + r[5]).toFixed(1).toString() + " </strong></font>有效词条</p>"
             res1 = res1 + "<p><span class='badge bg-primary' style='font-size: 0.85rem;font-weight: normal;'>攻防双爆</span> 共 <font size='4'><strong>" + (r[1] + r[2] + r[6] + r[5]).toFixed(1).toString() +
                 " </strong></font>有效词条</p>"
@@ -868,7 +911,7 @@ function SetChar(mtype) {
 
         res3 = res3 + res1
 
-        return(copytxt(res3))
+        return (copytxt(res3))
     }
 }
 
@@ -880,6 +923,11 @@ window.onload = function () {
     Load()
 }
 
-function copytxt(txt){
+function copytxt(txt) {
     document.getElementById('hint').innerHTML = "<hr>通常情况下，<strong>20~25条</strong> 属于 <strong>小毕业区间</strong>，<strong>25~30条</strong> 属于 <strong>毕业区间</strong>，<strong>35条以上</strong> 属于 <strong>欧皇区间</strong>";
+}
+
+function SetWeapon() {
+    document.getElementById("QQ").value = document.getElementById("Weapon").value
+    Save(document.getElementById('Char').value)
 }
