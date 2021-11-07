@@ -25,7 +25,7 @@
 				圣遗物副词条数便捷计算器
 			</a>
 			<span class="navbar-text">
-				你的圣遗物毕业了吗？| 更新至 <strong>珊瑚宫心海</strong>
+				你的圣遗物毕业了吗？| 更新至 <strong>荒泷一斗 & 五郎</strong>
 			</span>
 		</div>
 	</nav>
@@ -45,7 +45,7 @@
 								<div class="mb-3">
 									<label class="form-label">角色</label>
 									<select id="Char" class="form-select" onchange="SetChar(2)">
-										<optgroup label="风元素">
+										<optgroup label="风元素-Anemo">
 											<option>温迪</option>
 											<option>琴</option>
 											<option>魈</option>
@@ -54,14 +54,14 @@
 											<option>枫原万叶</option>
 											<option>早柚</option>
 										</optgroup>
-										<optgroup label="水元素">
+										<optgroup label="水元素-Hydro">
 											<option>达达利亚</option>
 											<option>莫娜</option>
 											<option>行秋</option>
 											<option>芭芭拉</option>
 											<option>珊瑚宫心海</option>
 										</optgroup>
-										<optgroup label="火元素">
+										<optgroup label="火元素-Pyro">
 											<option>迪卢克</option>
 											<option>可莉</option>
 											<option>胡桃</option>
@@ -73,7 +73,7 @@
 											<option>宵宫</option>
 											<option>托马</option>
 										</optgroup>
-										<optgroup label="冰元素">
+										<optgroup label="冰元素-Cyro">
 											<option>七七</option>
 											<option>甘雨</option>
 											<option>优菈</option>
@@ -84,7 +84,7 @@
 											<option>神里绫华</option>
 											<option>埃洛伊</option>
 										</optgroup>
-										<optgroup label="雷元素">
+										<optgroup label="雷元素-Electro">
 											<option>刻晴</option>
 											<option>菲谢尔</option>
 											<option>北斗</option>
@@ -93,17 +93,19 @@
 											<option>雷电将军</option>
 											<option>九条裟罗</option>
 										</optgroup>
-										<optgroup label="岩元素">
+										<optgroup label="岩元素-Geo">
 											<option>钟离</option>
 											<option>阿贝多</option>
 											<option>岩旅行者</option>
 											<option>凝光</option>
 											<option>诺艾尔</option>
+											<option>荒泷一斗</option>
+											<option>五郎</option>
 										</optgroup>
 									</select>
 								</div>
 								<div class="mb-3">
-									<label class="form-label">等级</label>
+									<label class="form-label">角色等级</label>
 									<select id="Level" class="form-select" onchange="SetChar(0)">
 										<option value="2">90级</option>
 										<option value="1">80级已突破</option>
@@ -202,7 +204,20 @@
 					<div class="card-body">
 						<div class="mb-3">
 							<label class="form-label">武器界面的基础攻击力</label>
-							<input type="text" class="form-control" id="QQ" onchange="SetCharS('QQ')">
+							<input type="text" class="form-control" id="QQ" value="0" onchange="SetCharS('QQ')">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">快速选择武器</label>
+							<p id="WeaponList">
+								<select id="Weapon" onchange="SetWeapon()" class="form-select">
+									<option value="0">快速选择武器</option>
+									<option value="674">天空之翼</option>
+									<option value="608">阿莫斯/冬极/飞雷/终末</option>
+									<option value="565">祭礼/暗巷/黑岩</option>
+									<option value="510">弓藏/幽夜/风花/绝弦/月卡/宗室/试作</option>
+									<option value="454">西风/钢轮弓/破魔弓</option>
+								</select>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -247,7 +262,7 @@
 					<p>选择角色和等级 ( 80突破以下直接使用80突破即可 )</p>
 					<p>然后选择好时之沙、空之杯和理之冠的 <strong>主词条</strong></p>
 					<p>打开 <strong>圣遗物详情</strong> 面板，在表格中填入对应的数值</p>
-					<p>填写武器攻击力白值 ( 即面板中武器的基础攻击力数值 )</p>
+					<p>选择或填写武器攻击力白值 ( 即面板中武器的基础攻击力数值 )</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">知道了</button>
@@ -282,10 +297,12 @@
 	<!--页脚-->
 	<footer>
 		<div class="sticky-bottom">
-			<p class="footer">本站为 <a href="http://spongem.com/ajglz/ys/ys.html" target="_blank">阿秋</a> 的美化版&nbsp;|&nbsp;原作者 &copy; NGA-pressure_pressure<br/>
-			Powered &copy; 2020<script>
+			<p class="footer">本站为 <a href="http://spongem.com/ajglz/ys/ys.html" target="_blank">阿秋</a>
+				的美化版&nbsp;|&nbsp;原作者 &copy; NGA-pressure_pressure<br />
+				Powered &copy; 2020<script>
 					document.write(' - ' + (new Date()).getFullYear())
-				</script>&nbsp;<a href="https://lab.imsyy.top/">無名の网页实验室</a>&nbsp;|&nbsp;<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备20013231-2号</a>
+				</script>&nbsp;<a href="https://lab.imsyy.top/">無名の网页实验室</a>&nbsp;|&nbsp;<a
+					href="https://beian.miit.gov.cn/" target="_blank">豫ICP备20013231-2号</a>
 			</p>
 		</div>
 	</footer>
